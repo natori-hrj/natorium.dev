@@ -1,2 +1,28 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Zen Maru Gothic', 'Inter', sans-serif;
+}
+
+@layer base {
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+  }
+
+  :root.dark {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+  }
+
+  body {
+    font-family: 'Zen Maru Gothic', 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+}
+
