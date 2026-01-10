@@ -17,8 +17,11 @@
       natori's Site
     </a>
     <nav class="flex items-center space-x-4">
-      <a href="/blog" class="hover:underline font-bold">Blog</a>
-      <a href="/about" class="hover:underline font-bold">About</a>
+      <a href="/blog" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Blog</a>
+      <a href="/projects" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Projects</a>
+      <a href="/tech-stack" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Tech</a>
+      <a href="/uses" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Uses</a>
+      <a href="/about" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">About</a>
       <ThemeToggle />
     </nav>
   </header>
