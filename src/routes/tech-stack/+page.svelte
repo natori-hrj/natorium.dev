@@ -7,7 +7,6 @@
       icon: Code2,
       items: [
         "Python",
-        "Java",
         "TypeScript/JavaScript",
         "Go",
         "SQL"
@@ -17,11 +16,10 @@
       category: "フレームワーク・ライブラリ",
       icon: Code2,
       items: [
-        "Spring Boot",
-        "Node.js / Express",
+        "Node.js",
         "Apache Spark",
         "Pandas / NumPy",
-        "SvelteKit / React"
+        "SvelteKit / React / Next.js"
       ]
     },
     {
@@ -29,9 +27,9 @@
       icon: Database,
       items: [
         "PostgreSQL",
+        "Synapse",
+        "BigQuery",
         "MySQL",
-        "Redis",
-        "MongoDB",
         "Elasticsearch"
       ]
     },
@@ -40,10 +38,9 @@
       icon: Cloud,
       items: [
         "AWS (EC2, S3, Lambda, RDS)",
-        "Docker / Kubernetes",
+        "Docker",
         "Terraform",
         "GitHub Actions",
-        "Jenkins"
       ]
     },
     {
@@ -52,7 +49,7 @@
       items: [
         "Git / GitHub",
         "VS Code",
-        "IntelliJ IDEA",
+        "NeoVim",
         "Postman",
         "DBeaver"
       ]

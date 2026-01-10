@@ -4,16 +4,12 @@
       category: "エディタ・IDE",
       items: [
         {
-          name: "Visual Studio Code",
-          description: "メインエディタ。拡張機能が豊富で軽量。"
-        },
-        {
-          name: "IntelliJ IDEA",
-          description: "Java開発時に使用。強力なリファクタリング機能が便利。"
-        },
-        {
           name: "Vim / Neovim",
-          description: "サーバー上での編集や、ちょっとした修正に。"
+          description: "メインエディタ。軽量"
+        },
+        {
+          name: "Visual Studio Code",
+          description: "csvやparquetなどのファイル確認によく使う"
         }
       ]
     },
@@ -24,14 +20,6 @@
           name: "WezTerm",
           description: "Rust製の高速なターミナルエミュレータ。"
         },
-        {
-          name: "Zsh + Starship",
-          description: "シェルとプロンプト。シンプルで見やすい。"
-        },
-        {
-          name: "tmux",
-          description: "ターミナルマルチプレクサ。セッション管理に便利。"
-        }
       ]
     },
     {
@@ -46,30 +34,18 @@
           description: "API開発・テストツール。"
         },
         {
-          name: "DBeaver",
-          description: "データベースGUIクライアント。複数のDBに対応。"
+          name: "DataBricks, Azure Data Factory",
+          description: "大規模なデータ処理に。"
         },
-        {
-          name: "Bruno",
-          description: "オープンソースのAPIクライアント。"
-        }
       ]
     },
     {
-      category: "ブラウザ・拡張機能",
+      category: "ブラウザ",
       items: [
         {
-          name: "Google Chrome",
-          description: "メインブラウザ。開発者ツールが優秀。"
-        },
-        {
-          name: "React Developer Tools",
-          description: "React開発時のデバッグに。"
-        },
-        {
-          name: "JSON Viewer",
-          description: "JSONを見やすく整形して表示。"
-        }
+            name: "Google Chrome",
+            description: "メインブラウザ",
+          },
       ]
     },
     {
@@ -80,12 +56,12 @@
           description: "ドキュメント管理、メモ、タスク管理。"
         },
         {
-          name: "Figma",
-          description: "UI/UXデザイン、ワイヤーフレーム作成。"
+          name: "Github",
+          description: "プロジェクト管理、コード管理、CI/CD"
         },
         {
           name: "Slack",
-          description: "チームコミュニケーション。"
+          description: "チームコミュニケーション"
         }
       ]
     }

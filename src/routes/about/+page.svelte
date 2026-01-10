@@ -4,7 +4,7 @@
 
 <svelte:head>
   <title>About - natori's Site</title>
-  <meta name="description" content="natorのプロフィールと経歴" />
+  <meta name="description" content="natoriのプロフィールと経歴" />
 </svelte:head>
 
 <div class="max-w-3xl">
