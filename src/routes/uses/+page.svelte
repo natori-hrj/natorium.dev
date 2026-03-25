@@ -102,10 +102,4 @@
     {/each}
   </div>
 
-  <div class="mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-    <h3 class="text-lg font-bold mb-2 text-gray-900 dark:text-white">編集方法</h3>
-    <p class="text-sm text-gray-600 dark:text-gray-400">
-      このページの内容を編集するには、<code class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">src/routes/uses/+page.svelte</code> を開いて、<code class="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">uses</code> 配列を編集してください。
-    </p>
-  </div>
 </div>
