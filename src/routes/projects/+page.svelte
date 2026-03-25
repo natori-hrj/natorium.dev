@@ -22,7 +22,7 @@
       title: "個人サイト (このサイト)",
       description: "SvelteKitとTailwind CSSを使用して構築した個人ブログサイトです。Markdownでブログ記事を管理できます。",
       technologies: ["SvelteKit", "TypeScript", "Tailwind CSS", "mdsvex"],
-      github: "https://github.com/natori-hrj/mysite",
+      github: "https://github.com/natori-hrj/natorium.dev",
       demo: null,
       featured: false
     }
