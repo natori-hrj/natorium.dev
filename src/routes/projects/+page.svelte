@@ -25,6 +25,62 @@
       github: "https://github.com/natori-hrj/natorium.dev",
       demo: null,
       featured: false
+    },
+    {
+      title: "iss-tracker-cli",
+      description: "ISSの現在位置をリアルタイムでターミナルに表示するCLIツール。ASCIIアートで地球を描き、乗組員情報や自分の現在地からの距離も表示。",
+      technologies: ["Go"],
+      github: "https://github.com/natori-hrj/iss-tracker-cli",
+      demo: null,
+      featured: false
+    },
+    {
+      title: "nasa-apod-cli",
+      description: "NASAの「Astronomy Picture of the Day」をターミナルから閲覧できるCLIツール。ASCIIアートで画像表示、日本語翻訳、ランダム取得に対応。",
+      technologies: ["Go"],
+      github: "https://github.com/natori-hrj/nasa-apod-cli",
+      demo: null,
+      featured: false
+    },
+    {
+      title: "spotify-now-playing-cli",
+      description: "Spotifyで再生中の曲をターミナルに表示するCLIツール。進捗バーや再生履歴表示に対応。",
+      technologies: ["Go"],
+      github: "https://github.com/natori-hrj/spotify-now-playing-cli",
+      demo: null,
+      featured: false
+    },
+    {
+      title: "debt-checker",
+      description: "Pythonコードの技術的負債を検出・可視化するCLIツール。100点満点のスコアで健全性を評価。",
+      technologies: ["Python"],
+      github: "https://github.com/natori-hrj/debt-checker",
+      demo: null,
+      featured: false
+    },
+    {
+      title: "readme-score",
+      description: "README.mdの品質を100点満点でスコアリングするCLIツール。ローカルファイルとGitHub URLの両方に対応。",
+      technologies: ["Python"],
+      github: "https://github.com/natori-hrj/readme-score",
+      demo: null,
+      featured: false
+    },
+    {
+      title: "nvim-databricks",
+      description: "NeovimでPythonファイルをDatabricksの任意のクラスターで実行できるプラグイン。",
+      technologies: ["Lua"],
+      github: "https://github.com/natori-hrj/nvim-databricks",
+      demo: null,
+      featured: false
+    },
+    {
+      title: "Dogger Log（開発中）",
+      description: "愛犬の健康管理・成長記録・お出かけ記録Webアプリ。",
+      technologies: ["Go", "Next.js", "PostgreSQL", "GCP"],
+      github: "https://github.com/natori-hrj/dogger-log",
+      demo: null,
+      featured: false
     }
   ];
 </script>
