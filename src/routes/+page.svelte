@@ -5,7 +5,7 @@
   
   const profile = {
     name: "natori",
-    title: "Backend Enginer (大規模データ処理/ アジャイル開発)",
+    title: "Backend Engineer (大規模データ処理/ アジャイル開発)",
     description: "某大手物流企業で大規模なデータ処理をしたり、\n webアプリ開発に携わったりしてます。",
     links: [
       { name: "Github", url: "https://github.com/natori-hrj", icon: github },
@@ -14,6 +14,10 @@
     ]
   };
 </script>
+
+<svelte:head>
+  <meta name="description" content="natori - Backend Engineer. 大規模データ処理やWebアプリ開発に携わっています。" />
+</svelte:head>
 
 <div class="flex flex-col items-center justify-center py-20 text-center">
   <div class="mb-8 overflow-hidden rounded-full w-32 h-32 border-2 border-gray-200 dark:border-gray-700 shadow-sm hover:scale-105 transition-transform">
