@@ -2,8 +2,17 @@
   import './layout.css';
   import favicon from '$lib/assets/favicon.svg';
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
-  
+  import { page } from '$app/state';
+
   let { children } = $props();
+
+  const navLinks = [
+    { href: '/blog', label: 'Blog' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/tech-stack', label: 'Tech' },
+    { href: '/uses', label: 'Uses' },
+    { href: '/about', label: 'About' },
+  ];
 </script>
 
 <svelte:head>
@@ -17,11 +26,13 @@
       natori's Site
     </a>
     <nav class="flex items-center space-x-4">
-      <a href="/blog" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Blog</a>
-      <a href="/projects" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Projects</a>
-      <a href="/tech-stack" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Tech</a>
-      <a href="/uses" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Uses</a>
-      <a href="/about" class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">About</a>
+      {#each navLinks as link}
+        <a
+          href={link.href}
+          aria-current={page.url.pathname.startsWith(link.href) ? 'page' : undefined}
+          class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+        >{link.label}</a>
+      {/each}
       <ThemeToggle />
     </nav>
   </header>
