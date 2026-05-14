@@ -1,6 +1,5 @@
 <script lang="ts">
   import './layout.css';
-  import favicon from '$lib/assets/favicon.svg';
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
   import { page } from '$app/state';
 
@@ -16,7 +15,7 @@
 </script>
 
 <svelte:head>
-  <link rel="icon" href={favicon} />
+  <link rel="icon" type="image/png" href="/profile.png" />
   <title>natori's Site</title>
 </svelte:head>
 
