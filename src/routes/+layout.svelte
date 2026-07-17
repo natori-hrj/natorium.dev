@@ -2,8 +2,24 @@
   import './layout.css';
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
   import { page } from '$app/state';
+  import { onNavigate } from '$app/navigation';
 
   let { children } = $props();
+
+  // iOS風のプッシュ/ポップ遷移。戻る操作(popstate, delta<0)は逆方向にスライド。
+  onNavigate((navigation) => {
+    if (!document.startViewTransition) return;
+
+    const isBack = navigation.delta !== undefined && navigation.delta < 0;
+    document.documentElement.dataset.nav = isBack ? 'back' : 'forward';
+
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
 
   const navLinks = [
     { href: '/blog', label: 'Blog' },
@@ -19,7 +35,7 @@
   <title>natori's Site</title>
 </svelte:head>
 
-<header class="glass-bar sticky top-0 z-50">
+<header class="glass-bar sticky top-0 z-50" style="view-transition-name: header;">
   <div class="max-w-screen-md mx-auto px-4 py-3 flex justify-between items-center">
     <a
       href="/"
@@ -41,7 +57,7 @@
 </header>
 
 <div class="max-w-screen-md mx-auto px-4 py-8 antialiased">
-  <main>
+  <main style="view-transition-name: page;">
     {@render children()}
   </main>
 </div>

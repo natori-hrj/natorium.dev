@@ -105,3 +105,53 @@
   }
 }
 
+/* iOS-style push/pop page transitions (View Transitions API).
+   Only the content ('page') slides; the header stays put. */
+@media (prefers-reduced-motion: no-preference) {
+  /* The header must not fade during navigation — keep it fixed. */
+  ::view-transition-group(header) {
+    animation: none;
+  }
+
+  /* Forward (push): new page comes from the right, old exits to the left. */
+  :root[data-nav='forward']::view-transition-old(page) {
+    animation: push-out-left 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
+  }
+  :root[data-nav='forward']::view-transition-new(page) {
+    animation: push-in-right 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
+  }
+
+  /* Back (pop): mirror — new page from the left, old exits to the right. */
+  :root[data-nav='back']::view-transition-old(page) {
+    animation: push-out-right 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
+  }
+  :root[data-nav='back']::view-transition-new(page) {
+    animation: push-in-left 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
+  }
+
+  @keyframes push-in-right {
+    from { opacity: 0; transform: translateX(24px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes push-out-left {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(-24px); }
+  }
+  @keyframes push-in-left {
+    from { opacity: 0; transform: translateX(-24px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes push-out-right {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(24px); }
+  }
+}
+
+/* Reduced motion: fall back to a plain cross-fade (browser default). */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(page),
+  ::view-transition-new(page) {
+    animation-duration: 0.15s;
+  }
+}
+
