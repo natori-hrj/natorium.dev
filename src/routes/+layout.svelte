@@ -19,9 +19,12 @@
   <title>natori's Site</title>
 </svelte:head>
 
-<div class="max-w-screen-md mx-auto px-4 py-8 antialiased">
-  <header class="flex justify-between items-center mb-12">
-    <a href="/" class="text-xl font-bold hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+<header class="glass-bar sticky top-0 z-50">
+  <div class="max-w-screen-md mx-auto px-4 py-3 flex justify-between items-center">
+    <a
+      href="/"
+      class="press text-xl font-bold hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+    >
       natori's Site
     </a>
     <nav class="flex items-center space-x-4">
@@ -29,13 +32,15 @@
         <a
           href={link.href}
           aria-current={page.url.pathname.startsWith(link.href) ? 'page' : undefined}
-          class="hover:underline font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+          class="press font-bold text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors aria-[current=page]:text-blue-500 dark:aria-[current=page]:text-blue-400"
         >{link.label}</a>
       {/each}
       <ThemeToggle />
     </nav>
-  </header>
-  
+  </div>
+</header>
+
+<div class="max-w-screen-md mx-auto px-4 py-8 antialiased">
   <main>
     {@render children()}
   </main>
