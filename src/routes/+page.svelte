@@ -5,8 +5,8 @@
   
   const profile = {
     name: "natori",
-    title: "Backend Engineer (大規模データ処理/ アジャイル開発)",
-    description: "某大手物流企業で大規模なデータ処理をしたり、\n webアプリ開発に携わったりしてます。",
+    title: "Backend Engineer (大規模データ基盤 / データ×AI)",
+    description: "某大手物流企業で大規模データ基盤の開発や、\n データ×AIの活用・実証に取り組んでいます。",
     links: [
       { name: "Github", url: "https://github.com/natori-hrj", icon: github },
       { name: "X", url: "https://x.com/nator1_hrj", icon: twitter },
