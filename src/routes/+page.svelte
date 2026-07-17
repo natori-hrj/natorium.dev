@@ -19,8 +19,8 @@
   <meta name="description" content="natori - Backend Engineer. 大規模データ処理やWebアプリ開発に携わっています。" />
 </svelte:head>
 
-<div class="flex flex-col items-center justify-center py-20 text-center">
-  <div class="mb-8 overflow-hidden rounded-full w-32 h-32 border-2 border-gray-200 dark:border-gray-700 shadow-sm hover:scale-105 transition-transform">
+<div class="rise flex flex-col items-center justify-center py-20 text-center">
+  <div class="press mb-8 overflow-hidden rounded-full w-32 h-32 border-2 border-gray-200 dark:border-gray-700 shadow-sm hover:scale-105 transition-transform">
     <img src="/profile.png" alt={profile.name} class="w-full h-full object-cover" />
   </div>
   
@@ -38,7 +38,7 @@
         href={link.url}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+        class="press text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
       >
         <svelte:component this={link.icon} size={24} />
       </a>
