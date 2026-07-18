@@ -3,20 +3,44 @@
 
   const projects = [
     {
-      title: "大規模データ処理パイプライン",
-      description: "物流企業向けの大規模データ処理システムを設計・実装しました。数億レコードのデータを効率的に処理し、リアルタイム分析を可能にしました。",
-      technologies: ["Python", "Apache Spark", "PostgreSQL", "Docker", "Kubernetes"],
+      title: "TiDB へのOSSコントリビュート",
+      description: "Go製の分散SQLデータベース TiDB（PingCAP）へ、オプティマイザのヒント警告に関するバグ修正PRを提出しマージ達成。good first issueから2 LGTM・CI全通過を経て完走した、初のOSSコントリビュートです。",
+      technologies: ["Go"],
+      github: "https://github.com/pingcap/tidb/pull/68697",
+      demo: null,
+      featured: true
+    },
+    {
+      title: "日次収支速報 BFF",
+      description: "経営ダッシュボードへ日次の営業利益（収支速報）を提供するBFF（Backend For Frontend）。要件定義・API設計から実装まで担当し、OpenAPI契約・レスポンス整形・認証認可・テストを設計。データ源をBlobからBigQueryへ差し替える構成で進めています。",
+      technologies: ["TypeScript", "Hono", "OpenAPI (zod)", "Drizzle ORM", "vitest", "BigQuery"],
       github: null,
       demo: null,
       featured: true
     },
     {
-      title: "社内業務管理Webアプリケーション",
-      description: "アジャイル開発手法を用いて、業務効率化のためのWebアプリケーションを開発しました。チーム開発でCI/CDパイプラインも構築。",
-      technologies: ["TypeScript", "Node.js", "React", "PostgreSQL", "AWS"],
+      title: "EC荷物可視化システムの内製移行",
+      description: "年間約50億件（日次約1,370万件）の荷物データを約10分間隔でニアリアルタイム処理するパイプラインを主担当。ブラックボックス化していた既存システムをコードから解読・文書化して再構築し、差分処理＋荷物ID単位の重複排除で冪等化しました。",
+      technologies: ["Azure Data Factory", "Delta Lake", "PySpark", "PowerBI", "Next.js"],
       github: null,
       demo: null,
       featured: true
+    },
+    {
+      title: "経営情報SSOT（Single Source of Truth）",
+      description: "全社の経営情報を統合し、全国の営業所長クラスまでが同じ情報を参照できる基盤を開発。認証認可・権限管理を担当し、多層認可や動的アクセス制御を設計。現在はPowerBI画面のWebアプリ移行（Apache ECharts採用）と、Azure→Google Cloud移行を推進中。",
+      technologies: ["Next.js", "TypeScript", "tRPC", "Auth.js", "Prisma", "Apache ECharts", "BigQuery"],
+      github: null,
+      demo: null,
+      featured: true
+    },
+    {
+      title: "GraphRAG 調査・実証",
+      description: "AI推進チームにて、実案件をもとにGraphRAGの必要性を定量的に検証。「GraphRAGありき」ではなく通常のRAGをベースラインに、精度・コスト・レイテンシで比較して判断する方針で取り組んでいます。基盤はGoogle Cloudで構築。",
+      technologies: ["Python", "LLM", "GraphRAG / RAG", "Google Cloud"],
+      github: null,
+      demo: null,
+      featured: false
     },
     {
       title: "個人サイト (このサイト)",

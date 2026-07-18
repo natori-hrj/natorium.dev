@@ -1,25 +1,48 @@
 <script lang="ts">
-  import { Code2, Database, Cloud, Wrench, Users } from 'lucide-svelte';
+  import { Code2, Server, Database, BarChart3, Cloud, Bot, Wrench, Users } from 'lucide-svelte';
 
   const techStack = [
     {
-      category: "バックエンド言語",
+      category: "言語",
       icon: Code2,
       items: [
         "Python",
-        "TypeScript/JavaScript",
         "Go",
+        "TypeScript / JavaScript",
         "SQL"
       ]
     },
     {
-      category: "フレームワーク・ライブラリ",
-      icon: Code2,
+      category: "Web・バックエンド",
+      icon: Server,
       items: [
-        "Node.js",
-        "Apache Spark",
-        "Pandas / NumPy",
-        "SvelteKit / React / Next.js"
+        "Hono",
+        "tRPC",
+        "FastAPI",
+        "Next.js / React / SvelteKit",
+        "OpenAPI (zod) / Drizzle / Prisma",
+        "Auth.js (NextAuth) / OAuth"
+      ]
+    },
+    {
+      category: "データエンジニアリング",
+      icon: Database,
+      items: [
+        "PySpark / Apache Spark",
+        "Databricks",
+        "Azure Synapse / Data Factory",
+        "Delta Lake",
+        "Pandas / NumPy"
+      ]
+    },
+    {
+      category: "可視化・BI",
+      icon: BarChart3,
+      items: [
+        "PowerBI",
+        "Apache ECharts",
+        "Grafana",
+        "Kibana"
       ]
     },
     {
@@ -27,9 +50,8 @@
       icon: Database,
       items: [
         "PostgreSQL",
-        "Synapse",
-        "BigQuery",
         "MySQL",
+        "BigQuery",
         "Elasticsearch"
       ]
     },
@@ -37,10 +59,20 @@
       category: "インフラ・クラウド",
       icon: Cloud,
       items: [
-        "AWS (EC2, S3, Lambda, RDS)",
+        "Google Cloud / BigQuery",
+        "Azure",
+        "AWS（認定12冠）",
         "Docker",
-        "Terraform",
-        "GitHub Actions",
+        "GitHub Actions"
+      ]
+    },
+    {
+      category: "AI・LLM",
+      icon: Bot,
+      items: [
+        "GraphRAG / RAG",
+        "LLM API",
+        "Claude Code / Copilot / Gemini"
       ]
     },
     {

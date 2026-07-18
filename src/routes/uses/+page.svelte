@@ -40,6 +40,23 @@
       ]
     },
     {
+      category: "AI・開発支援",
+      items: [
+        {
+          name: "Claude Code",
+          description: "コーディング・リファクタリング・調査に日常的に活用。"
+        },
+        {
+          name: "GitHub Copilot",
+          description: "エディタ上での補完・提案。"
+        },
+        {
+          name: "Gemini",
+          description: "調査・壁打ち・情報整理に。"
+        }
+      ]
+    },
+    {
       category: "ブラウザ",
       items: [
         {
