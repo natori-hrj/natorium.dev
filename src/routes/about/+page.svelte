@@ -33,7 +33,7 @@
           <Briefcase size={20} class="text-blue-500 dark:text-blue-400" />
         </div>
         <div>
-          <h3 class="font-bold text-gray-900 dark:text-white">バックエンドAPI・認証認可の設計（tRPC・Auth.js・Prisma / Go・Python）</h3>
+          <h3 class="font-bold text-gray-900 dark:text-white">バックエンド・BFF / API・認証認可の設計（Hono・tRPC / OpenAPI・Drizzle / Go・Python）</h3>
         </div>
       </div>
 

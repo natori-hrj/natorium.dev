@@ -16,11 +16,12 @@
       category: "Web・バックエンド",
       icon: Server,
       items: [
+        "Hono",
         "tRPC",
         "FastAPI",
         "Next.js / React / SvelteKit",
-        "Auth.js (NextAuth) / OAuth",
-        "Prisma"
+        "OpenAPI (zod) / Drizzle / Prisma",
+        "Auth.js (NextAuth) / OAuth"
       ]
     },
     {
@@ -58,9 +59,9 @@
       category: "インフラ・クラウド",
       icon: Cloud,
       items: [
-        "Azure（メイン）",
-        "AWS（認定12冠）",
         "Google Cloud / BigQuery",
+        "Azure",
+        "AWS（認定12冠）",
         "Docker",
         "GitHub Actions"
       ]
