@@ -36,14 +36,15 @@
 </svelte:head>
 
 <header class="glass-bar sticky top-0 z-50" style="view-transition-name: header;">
-  <div class="max-w-screen-md mx-auto px-4 py-3 flex justify-between items-center">
+  <!-- 狭い画面ではナビが2行目に折り返す（1行に収めると横幅があふれてページ全体がずれるため） -->
+  <div class="max-w-screen-md mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-y-2">
     <a
       href="/"
-      class="press text-xl font-bold hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+      class="press text-lg sm:text-xl font-bold hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
     >
       natori's Site
     </a>
-    <nav class="flex items-center space-x-4">
+    <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm sm:text-base">
       {#each navLinks as link}
         <a
           href={link.href}
