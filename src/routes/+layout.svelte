@@ -3,8 +3,13 @@
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
   import { page } from '$app/state';
   import { onNavigate } from '$app/navigation';
+  import { injectAnalytics } from '@vercel/analytics/sveltekit';
 
   let { children } = $props();
+
+  // Vercel Web Analytics。クライアント遷移も含めてページビューを計測する。
+  // 本番(Vercel)でのみ送信され、ローカル/dev では何も送らない。
+  injectAnalytics();
 
   // iOS風のプッシュ/ポップ遷移。戻る操作(popstate, delta<0)は逆方向にスライド。
   onNavigate((navigation) => {
