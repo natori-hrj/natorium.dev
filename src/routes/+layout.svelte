@@ -8,11 +8,15 @@
   import github from 'lucide-svelte/icons/github';
   import twitter from 'lucide-svelte/icons/twitter';
   import linkedin from 'lucide-svelte/icons/linkedin';
+  import ZennIcon from '$lib/components/icons/ZennIcon.svelte';
+  import LeetCodeIcon from '$lib/components/icons/LeetCodeIcon.svelte';
 
   let { children } = $props();
 
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/natori-hrj', icon: github },
+    { name: 'Zenn', url: 'https://zenn.dev/natori_hrj', icon: ZennIcon },
+    { name: 'LeetCode', url: 'https://leetcode.com/u/natori-hrj/', icon: LeetCodeIcon },
     { name: 'X', url: 'https://x.com/nator1_hrj', icon: twitter },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/ryuji-hanato', icon: linkedin }
   ];
