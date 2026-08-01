@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import type { ComponentType } from 'svelte';
+  import type { Component, ComponentType } from 'svelte';
 
-  // lucide-svelte のアイコンはクラスコンポーネントなので ComponentType で受ける
-  type DockItem = { name: string; url: string; icon: ComponentType };
+  // lucide-svelte は旧来のクラスコンポーネント、自作アイコンはSvelte 5のコンポーネント。
+  // 両方を受け付けられるようにユニオンで定義する。
+  type IconComponent = ComponentType | Component<{ size?: number }>;
+  type DockItem = { name: string; url: string; icon: IconComponent };
 
   let { items }: { items: DockItem[] } = $props();
 
@@ -74,10 +76,13 @@
 
 <style>
   .dock {
+    --dock-size: 44px;
+    /* 最大拡大時に隣のアイコンと重ならない間隔 */
+    --dock-gap: 16px;
+
     display: inline-flex;
     align-items: flex-end;
-    /* 最大拡大時に隣のアイコンと重ならない間隔 */
-    gap: 16px;
+    gap: var(--dock-gap);
     padding: 10px 14px;
     border-radius: 22px;
     background-color: var(--glass-bg);
@@ -89,8 +94,18 @@
 
   .dock-slot {
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: var(--dock-size);
+    height: var(--dock-size);
+  }
+
+  /* アイコンが5つあるので、狭い画面では一回り小さくして収める */
+  @media (max-width: 420px) {
+    .dock {
+      --dock-size: 38px;
+      --dock-gap: 10px;
+      padding: 8px 10px;
+      border-radius: 18px;
+    }
   }
 
   .dock-item {
