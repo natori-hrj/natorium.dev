@@ -4,6 +4,7 @@
   import Dock from '$lib/components/Dock.svelte';
   import { page } from '$app/state';
   import { onNavigate } from '$app/navigation';
+  import { injectAnalytics } from '@vercel/analytics/sveltekit';
   import github from 'lucide-svelte/icons/github';
   import twitter from 'lucide-svelte/icons/twitter';
   import linkedin from 'lucide-svelte/icons/linkedin';
@@ -15,6 +16,10 @@
     { name: 'X', url: 'https://x.com/nator1_hrj', icon: twitter },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/ryuji-hanato', icon: linkedin }
   ];
+
+  // Vercel Web Analytics。クライアント遷移も含めてページビューを計測する。
+  // 本番(Vercel)でのみ送信され、ローカル/dev では何も送らない。
+  injectAnalytics();
 
   // iOS風のプッシュ/ポップ遷移。戻る操作(popstate, delta<0)は逆方向にスライド。
   onNavigate((navigation) => {
