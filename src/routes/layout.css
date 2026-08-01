@@ -51,6 +51,11 @@
     border-bottom: 1px solid var(--glass-border);
   }
 
+  /* Fixed dock: keep it clear of the iPhone home indicator. */
+  .dock-bar {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
   /* Instant press feedback — respond on pointer-down, spring-like settle. */
   .press {
     transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
