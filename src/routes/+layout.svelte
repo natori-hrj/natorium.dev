@@ -72,12 +72,19 @@
   </div>
 </header>
 
-<div class="max-w-screen-md mx-auto px-4 py-8 antialiased">
+<!-- 下端に固定。Dockの高さぶんはコンテンツ側に余白を確保して隠れないようにする。 -->
+<div class="max-w-screen-md mx-auto px-4 pt-8 pb-32 antialiased">
   <main style="view-transition-name: page;">
     {@render children()}
   </main>
-
-  <footer class="flex justify-center pt-16 pb-6" style="view-transition-name: dock;">
-    <Dock items={socialLinks} />
-  </footer>
 </div>
+
+<!-- ラッパーは操作を透過させ、Dock本体だけクリックできるようにする -->
+<footer
+  class="dock-bar pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center"
+  style="view-transition-name: dock;"
+>
+  <div class="pointer-events-auto">
+    <Dock items={socialLinks} />
+  </div>
+</footer>
