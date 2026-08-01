@@ -1,11 +1,21 @@
 <script lang="ts">
   import './layout.css';
   import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+  import Dock from '$lib/components/Dock.svelte';
   import { page } from '$app/state';
   import { onNavigate } from '$app/navigation';
   import { injectAnalytics } from '@vercel/analytics/sveltekit';
+  import github from 'lucide-svelte/icons/github';
+  import twitter from 'lucide-svelte/icons/twitter';
+  import linkedin from 'lucide-svelte/icons/linkedin';
 
   let { children } = $props();
+
+  const socialLinks = [
+    { name: 'GitHub', url: 'https://github.com/natori-hrj', icon: github },
+    { name: 'X', url: 'https://x.com/nator1_hrj', icon: twitter },
+    { name: 'LinkedIn', url: 'https://linkedin.com/in/ryuji-hanato', icon: linkedin }
+  ];
 
   // Vercel Web Analytics。クライアント遷移も含めてページビューを計測する。
   // 本番(Vercel)でのみ送信され、ローカル/dev では何も送らない。
@@ -66,4 +76,8 @@
   <main style="view-transition-name: page;">
     {@render children()}
   </main>
+
+  <footer class="flex justify-center pt-16 pb-6" style="view-transition-name: dock;">
+    <Dock items={socialLinks} />
+  </footer>
 </div>

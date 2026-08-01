@@ -108,8 +108,9 @@
 /* iOS-style push/pop page transitions (View Transitions API).
    Only the content ('page') slides; the header stays put. */
 @media (prefers-reduced-motion: no-preference) {
-  /* The header must not fade during navigation — keep it fixed. */
-  ::view-transition-group(header) {
+  /* The header and dock must not fade during navigation — keep them fixed. */
+  ::view-transition-group(header),
+  ::view-transition-group(dock) {
     animation: none;
   }
 
