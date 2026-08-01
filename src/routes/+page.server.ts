@@ -1,6 +1,8 @@
 import type { PageServerLoad } from './$types';
 
-export const GITHUB_USERNAME = 'natori-hrj';
+// +page.server.ts が外部に公開できるのは load などの決まった名前だけなので、
+// この定数はエクスポートせずファイル内に閉じる。
+const GITHUB_USERNAME = 'natori-hrj';
 
 // 公開APIのため認証トークン不要。GitHubの草データを日単位(level 0-4)で返す。
 const CONTRIBUTIONS_API = `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`;
