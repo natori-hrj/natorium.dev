@@ -1,8 +1,8 @@
 ---
-title: "SvelteKitで個人サイトを作った話"
-date: "2026-01-10"
-description: "SvelteKitを使って個人サイトを構築した経験を共有します。"
-tags: ["SvelteKit", "Web開発", "フロントエンド"]
+title: 'SvelteKitで個人サイトを作った話'
+date: '2026-01-10'
+description: 'SvelteKitを使って個人サイトを構築した経験を共有します。'
+tags: ['SvelteKit', 'Web開発', 'フロントエンド']
 published: true
 ---
 
@@ -18,8 +18,6 @@ published: true
 
 ZennやQiitaとかに何か投稿してみようとかも考えたりしたのですが  
 年始にXでZenn等へのコメント等々で荒れていたので新参者にはハードルが高かったので断念しました。
-
-
 
 ## SvelteKitとは？
 
@@ -60,8 +58,8 @@ npm install -D mdsvex
 import { mdsvex } from 'mdsvex';
 
 export default {
-  extensions: ['.svelte', '.md'],
-  preprocess: [mdsvex()]
+	extensions: ['.svelte', '.md'],
+	preprocess: [mdsvex()]
 };
 ```
 

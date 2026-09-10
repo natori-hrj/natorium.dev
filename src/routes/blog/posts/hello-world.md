@@ -1,8 +1,8 @@
 ---
-title: "はじめての記事"
-date: "2026-01-10"
-description: "ブログを始めました。Markdownで記事を書くことができます。"
-tags: ["雑記", "はじめに"]
+title: 'はじめての記事'
+date: '2026-01-10'
+description: 'ブログを始めました。Markdownで記事を書くことができます。'
+tags: ['雑記', 'はじめに']
 published: true
 ---
 
@@ -18,7 +18,7 @@ Markdownは軽量マークアップ言語で、簡単に文書を記述するこ
 
 ```javascript
 function hello() {
-  console.log("Hello, World!");
+	console.log('Hello, World!');
 }
 ```
 

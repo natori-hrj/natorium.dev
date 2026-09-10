@@ -4,160 +4,185 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'Zen Maru Gothic', 'Inter', sans-serif;
+	--font-sans: 'Zen Maru Gothic', 'Inter', sans-serif;
 }
 
 @layer base {
-  :root {
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    /* translucent material for floating chrome (glass header) */
-    --glass-bg: rgba(255, 255, 255, 0.72);
-    --glass-border: rgba(0, 0, 0, 0.08);
-  }
+	:root {
+		--bg-color: #ffffff;
+		--text-color: #000000;
+		/* translucent material for floating chrome (glass header) */
+		--glass-bg: rgba(255, 255, 255, 0.72);
+		--glass-border: rgba(0, 0, 0, 0.08);
+	}
 
-  :root.dark {
-    --bg-color: #000000;
-    --text-color: #ffffff;
-    --glass-bg: rgba(20, 20, 22, 0.64);
-    --glass-border: rgba(255, 255, 255, 0.1);
-  }
+	:root.dark {
+		--bg-color: #000000;
+		--text-color: #ffffff;
+		--glass-bg: rgba(20, 20, 22, 0.64);
+		--glass-border: rgba(255, 255, 255, 0.1);
+	}
 
-  body {
-    font-family: 'Zen Maru Gothic', 'Inter', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
-  }
+	body {
+		font-family: 'Zen Maru Gothic', 'Inter', sans-serif;
+		background-color: var(--bg-color);
+		color: var(--text-color);
+		transition:
+			background-color 0.3s,
+			color 0.3s;
+	}
 
-  /* Size-specific typographic discipline: large text reads too airy,
+	/* Size-specific typographic discipline: large text reads too airy,
      so tighten tracking and leading as it grows. */
-  h1 {
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-  }
-  h2 {
-    letter-spacing: -0.015em;
-    line-height: 1.2;
-  }
+	h1 {
+		letter-spacing: -0.02em;
+		line-height: 1.1;
+	}
+	h2 {
+		letter-spacing: -0.015em;
+		line-height: 1.2;
+	}
 }
 
 @layer components {
-  /* Floating translucent bar — content scrolls underneath (iOS material). */
-  .glass-bar {
-    background-color: var(--glass-bg);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid var(--glass-border);
-  }
+	/* Floating translucent bar — content scrolls underneath (iOS material). */
+	.glass-bar {
+		background-color: var(--glass-bg);
+		backdrop-filter: blur(20px) saturate(180%);
+		-webkit-backdrop-filter: blur(20px) saturate(180%);
+		border-bottom: 1px solid var(--glass-border);
+	}
 
-  /* Fixed dock: keep it clear of the iPhone home indicator. */
-  .dock-bar {
-    padding-bottom: max(1rem, env(safe-area-inset-bottom));
-  }
+	/* Fixed dock: keep it clear of the iPhone home indicator. */
+	.dock-bar {
+		padding-bottom: max(1rem, env(safe-area-inset-bottom));
+	}
 
-  /* Instant press feedback — respond on pointer-down, spring-like settle. */
-  .press {
-    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .press:active {
-    transform: scale(0.96);
-  }
+	/* Instant press feedback — respond on pointer-down, spring-like settle. */
+	.press {
+		transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.press:active {
+		transform: scale(0.96);
+	}
 
-  /* Spring-like entrance; gated behind reduced-motion below. */
-  .rise {
-    animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  @keyframes rise {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+	/* Spring-like entrance; gated behind reduced-motion below. */
+	.rise {
+		animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+	}
+	@keyframes rise {
+		from {
+			opacity: 0;
+			transform: translateY(12px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
 }
 
 /* Reduced motion: cross-fade only, drop movement and overshoot. */
 @media (prefers-reduced-motion: reduce) {
-  .press {
-    transition: none;
-  }
-  .press:active {
-    transform: none;
-  }
-  .rise {
-    animation: fade-in 0.2s ease both;
-  }
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+	.press {
+		transition: none;
+	}
+	.press:active {
+		transform: none;
+	}
+	.rise {
+		animation: fade-in 0.2s ease both;
+	}
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
 }
 
 /* Reduced transparency: make the glass frosty/solid instead of see-through. */
 @media (prefers-reduced-transparency: reduce) {
-  .glass-bar {
-    background-color: var(--bg-color);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
+	.glass-bar {
+		background-color: var(--bg-color);
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+	}
 }
 
 /* iOS-style push/pop page transitions (View Transitions API).
    Only the content ('page') slides; the header stays put. */
 @media (prefers-reduced-motion: no-preference) {
-  /* The header and dock must not fade during navigation — keep them fixed. */
-  ::view-transition-group(header),
-  ::view-transition-group(dock) {
-    animation: none;
-  }
+	/* The header and dock must not fade during navigation — keep them fixed. */
+	::view-transition-group(header),
+	::view-transition-group(dock) {
+		animation: none;
+	}
 
-  /* Forward (push): new page comes from the right, old exits to the left. */
-  :root[data-nav='forward']::view-transition-old(page) {
-    animation: push-out-left 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
-  }
-  :root[data-nav='forward']::view-transition-new(page) {
-    animation: push-in-right 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
-  }
+	/* Forward (push): new page comes from the right, old exits to the left. */
+	:root[data-nav='forward']::view-transition-old(page) {
+		animation: push-out-left 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
+	}
+	:root[data-nav='forward']::view-transition-new(page) {
+		animation: push-in-right 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
+	}
 
-  /* Back (pop): mirror — new page from the left, old exits to the right. */
-  :root[data-nav='back']::view-transition-old(page) {
-    animation: push-out-right 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
-  }
-  :root[data-nav='back']::view-transition-new(page) {
-    animation: push-in-left 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
-  }
+	/* Back (pop): mirror — new page from the left, old exits to the right. */
+	:root[data-nav='back']::view-transition-old(page) {
+		animation: push-out-right 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
+	}
+	:root[data-nav='back']::view-transition-new(page) {
+		animation: push-in-left 0.32s cubic-bezier(0.32, 0.72, 0, 1) both;
+	}
 
-  @keyframes push-in-right {
-    from { opacity: 0; transform: translateX(24px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  @keyframes push-out-left {
-    from { opacity: 1; transform: translateX(0); }
-    to { opacity: 0; transform: translateX(-24px); }
-  }
-  @keyframes push-in-left {
-    from { opacity: 0; transform: translateX(-24px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  @keyframes push-out-right {
-    from { opacity: 1; transform: translateX(0); }
-    to { opacity: 0; transform: translateX(24px); }
-  }
+	@keyframes push-in-right {
+		from {
+			opacity: 0;
+			transform: translateX(24px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+	@keyframes push-out-left {
+		from {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateX(-24px);
+		}
+	}
+	@keyframes push-in-left {
+		from {
+			opacity: 0;
+			transform: translateX(-24px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+	@keyframes push-out-right {
+		from {
+			opacity: 1;
+			transform: translateX(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateX(24px);
+		}
+	}
 }
 
 /* Reduced motion: fall back to a plain cross-fade (browser default). */
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(page),
-  ::view-transition-new(page) {
-    animation-duration: 0.15s;
-  }
+	::view-transition-old(page),
+	::view-transition-new(page) {
+		animation-duration: 0.15s;
+	}
 }
-
