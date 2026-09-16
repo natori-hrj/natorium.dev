@@ -22,11 +22,11 @@
 		{ name: 'LinkedIn', url: 'https://linkedin.com/in/ryuji-hanato', icon: linkedin }
 	];
 
-	// Vercel Web Analytics。クライアント遷移も含めてページビューを計測する。
-	// 本番(Vercel)でのみ送信され、ローカル/dev では何も送らない。
+	// Vercel Web Analytics. Tracks page views, including client-side navigation.
+	// Events are sent only in production; local development sends nothing.
 	injectAnalytics();
 
-	// iOS風のプッシュ/ポップ遷移。戻る操作(popstate, delta<0)は逆方向にスライド。
+	// iOS-style push/pop transitions. Back navigation (popstate, delta<0) slides in the opposite direction.
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
 
@@ -44,34 +44,34 @@
 	const navLinks = [
 		{ href: '/blog', label: 'Blog' },
 		{ href: '/projects', label: 'Projects' },
-		{ href: '/tech-stack', label: 'Tech' },
+		{ href: '/tech-stack', label: 'Tech Stack' },
 		{ href: '/uses', label: 'Uses' },
 		{ href: '/about', label: 'About' }
 	] as const;
 </script>
 
 <svelte:head>
-	<link rel="icon" type="image/png" href="/profile.png" />
 	<title>natori's Site</title>
 </svelte:head>
 
-<header class="glass-bar sticky top-0 z-50" style="view-transition-name: header;">
-	<!-- 狭い画面ではナビが2行目に折り返す（1行に収めると横幅があふれてページ全体がずれるため） -->
+<header class="site-header sticky top-0 z-50" style="view-transition-name: header;">
+	<!-- Allow the navigation to wrap on narrow screens so the page never overflows horizontally. -->
 	<div
 		class="mx-auto flex max-w-screen-md flex-wrap items-center justify-between gap-y-2 px-4 py-3"
 	>
 		<a
 			href={resolve('/')}
-			class="press text-lg font-bold transition-colors hover:text-blue-500 sm:text-xl dark:hover:text-blue-400"
+			class="press inline-flex items-center gap-2 text-sm font-bold tracking-[0.18em] uppercase transition-opacity hover:opacity-60 sm:text-base"
 		>
-			natori's Site
+			<img src="/mark.svg" alt="" aria-hidden="true" class="h-6 w-6" />
+			<span>natori</span>
 		</a>
 		<nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm sm:text-base">
 			{#each navLinks as link (link.href)}
 				<a
 					href={resolve(link.href)}
 					aria-current={page.url.pathname.startsWith(link.href) ? 'page' : undefined}
-					class="press font-bold text-gray-700 transition-colors hover:text-blue-500 aria-[current=page]:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400 dark:aria-[current=page]:text-blue-400"
+					class="press font-medium text-black/60 transition-opacity hover:opacity-100 aria-[current=page]:text-black aria-[current=page]:underline aria-[current=page]:underline-offset-4 dark:text-white/65 dark:aria-[current=page]:text-white"
 					>{link.label}</a
 				>
 			{/each}
@@ -80,14 +80,14 @@
 	</div>
 </header>
 
-<!-- 下端に固定。Dockの高さぶんはコンテンツ側に余白を確保して隠れないようにする。 -->
+<!-- Keep the dock fixed to the bottom and reserve space so content is not hidden behind it. -->
 <div class="mx-auto max-w-screen-md px-4 pt-8 pb-32 antialiased">
 	<main style="view-transition-name: page;">
 		{@render children()}
 	</main>
 </div>
 
-<!-- ラッパーは操作を透過させ、Dock本体だけクリックできるようにする -->
+<!-- Let pointer events pass through the wrapper; only the dock itself is interactive. -->
 <footer
 	class="dock-bar pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center"
 	style="view-transition-name: dock;"

@@ -4,25 +4,25 @@
 	let { data } = $props();
 </script>
 
-<h1 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Blog</h1>
+<h1 class="mb-8 text-3xl font-bold text-black dark:text-white">Blog</h1>
 
 {#if data.posts.length === 0}
-	<p class="text-gray-600 dark:text-gray-400">記事はまだありません。</p>
+	<p class="text-black/60 dark:text-white/65">No posts yet.</p>
 {:else}
 	<div class="space-y-8">
 		{#each data.posts as post (post.slug)}
-			<article class="group border-b border-gray-200 pb-6 last:border-0 dark:border-gray-700">
+			<article class="group border-b border-black/15 pb-6 last:border-0 dark:border-white/20">
 				<a href={resolve('/blog/[slug]', { slug: post.slug })} class="block">
 					<h2
-						class="mb-2 text-2xl font-bold text-gray-900 transition-colors group-hover:text-blue-500 dark:text-white dark:group-hover:text-blue-400"
+						class="mb-2 text-2xl font-bold text-black transition-opacity group-hover:opacity-60 dark:text-white"
 					>
 						{post.title}
 					</h2>
-					<time class="mb-2 block font-mono text-sm text-gray-500 dark:text-gray-400">
+					<time class="mb-2 block font-mono text-sm text-black/50 dark:text-white/55">
 						{post.date}
 					</time>
 					{#if post.description}
-						<p class="mb-3 text-gray-700 dark:text-gray-300">
+						<p class="mb-3 text-black/70 dark:text-white/75">
 							{post.description}
 						</p>
 					{/if}
@@ -30,7 +30,7 @@
 						<div class="flex flex-wrap gap-2">
 							{#each post.tags as tag (tag)}
 								<span
-									class="rounded bg-gray-100 px-2 py-1 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-400"
+									class="rounded-full border border-black/20 px-2 py-1 text-xs text-black/70 dark:border-white/25 dark:text-white/75"
 								>
 									#{tag}
 								</span>

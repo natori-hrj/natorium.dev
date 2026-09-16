@@ -3,12 +3,12 @@
 
 	const techStack = [
 		{
-			category: '言語',
+			category: 'Languages',
 			icon: Code2,
 			items: ['Python', 'Go', 'TypeScript / JavaScript', 'SQL']
 		},
 		{
-			category: 'Web・バックエンド',
+			category: 'Web & backend',
 			icon: Server,
 			items: [
 				'Hono',
@@ -20,7 +20,7 @@
 			]
 		},
 		{
-			category: 'データエンジニアリング',
+			category: 'Data engineering',
 			icon: Database,
 			items: [
 				'PySpark / Apache Spark',
@@ -31,32 +31,38 @@
 			]
 		},
 		{
-			category: '可視化・BI',
+			category: 'Visualization & BI',
 			icon: BarChart3,
 			items: ['PowerBI', 'Apache ECharts', 'Grafana', 'Kibana']
 		},
 		{
-			category: 'データベース',
+			category: 'Databases',
 			icon: Database,
 			items: ['PostgreSQL', 'MySQL', 'BigQuery', 'Elasticsearch']
 		},
 		{
-			category: 'インフラ・クラウド',
+			category: 'Infrastructure & cloud',
 			icon: Cloud,
-			items: ['Google Cloud / BigQuery', 'Azure', 'AWS（認定12冠）', 'Docker', 'GitHub Actions']
+			items: [
+				'Google Cloud / BigQuery',
+				'Azure',
+				'AWS (12 certifications)',
+				'Docker',
+				'GitHub Actions'
+			]
 		},
 		{
-			category: 'AI・LLM',
+			category: 'AI & LLM',
 			icon: Bot,
 			items: ['GraphRAG / RAG', 'LLM API', 'Claude Code / Copilot / Gemini']
 		},
 		{
-			category: '開発ツール',
+			category: 'Development tools',
 			icon: Wrench,
-			items: ['Git / GitHub', 'VS Code', 'NeoVim', 'Postman', 'DBeaver']
+			items: ['Git / GitHub', 'VS Code', 'Neovim', 'Postman', 'DBeaver']
 		},
 		{
-			category: 'アジャイル・プロジェクト管理',
+			category: 'Agile & project management',
 			icon: Users,
 			items: ['Scrum', 'Jira', 'Confluence', 'Slack', 'Miro']
 		}
@@ -65,30 +71,32 @@
 
 <svelte:head>
 	<title>Tech Stack - natori's Site</title>
-	<meta name="description" content="使用している技術スタックとツール" />
+	<meta name="description" content="Technologies and tools I use." />
 </svelte:head>
 
 <div class="max-w-4xl">
-	<h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">Tech Stack</h1>
-	<p class="mb-12 text-gray-600 dark:text-gray-400">
-		業務や個人開発で使用している技術スタックです。
+	<h1 class="mb-4 text-4xl font-bold text-black dark:text-white">Tech Stack</h1>
+	<p class="mb-12 text-black/60 dark:text-white/65">
+		Technologies I use at work and in personal projects.
 	</p>
 
 	<div class="grid gap-6 md:grid-cols-2">
 		{#each techStack as { category, icon, items } (category)}
-			<div class="rounded-lg border border-gray-200 p-6 dark:border-gray-700">
+			<div class="rounded-2xl border border-black/15 p-6 shadow-sm dark:border-white/20">
 				<div class="mb-4 flex items-center gap-3">
-					<div class="rounded-lg bg-blue-100 p-2 text-blue-600 dark:bg-blue-900 dark:text-blue-400">
+					<div
+						class="rounded-xl border border-black/15 p-2 text-black dark:border-white/20 dark:text-white"
+					>
 						<svelte:component this={icon} size={20} />
 					</div>
-					<h2 class="text-xl font-bold text-gray-900 dark:text-white">
+					<h2 class="text-xl font-bold text-black dark:text-white">
 						{category}
 					</h2>
 				</div>
 				<ul class="space-y-2">
 					{#each items as item (item)}
-						<li class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-							<span class="h-1.5 w-1.5 rounded-full bg-blue-500 dark:bg-blue-400"></span>
+						<li class="flex items-center gap-2 text-black/75 dark:text-white/80">
+							<span class="h-1.5 w-1.5 bg-black dark:bg-white"></span>
 							{item}
 						</li>
 					{/each}

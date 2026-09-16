@@ -1,57 +1,56 @@
 ---
-title: 'SvelteKitで個人サイトを作った話'
+title: 'Building a personal site with SvelteKit'
 date: '2026-01-10'
-description: 'SvelteKitを使って個人サイトを構築した経験を共有します。'
-tags: ['SvelteKit', 'Web開発', 'フロントエンド']
+description: 'What I learned while building a personal site with SvelteKit.'
+tags: ['SvelteKit', 'Web development', 'Frontend']
 published: true
 ---
 
-# SvelteKitで個人サイトを作成
+# Building a personal site with SvelteKit
 
-個人サイトをSvelteKitで構築しました。この記事では、その過程で学んだことを共有します。
+I built this personal site with SvelteKit. This post shares what I learned along the way.
 
-## 経緯
+## Why I built it
 
-まず個人サイトを作ってみようと思った経緯なのですが、  
-2026年になり、仕事以外で何か技術的なことやってみたいなとかは特にあるわけではなく、  
-とにかく何か作ってみたかっただけです:)
+I did not have a specific technical project in mind outside work as 2026 began.
+I simply wanted to build something.
 
-ZennやQiitaとかに何か投稿してみようとかも考えたりしたのですが  
-年始にXでZenn等へのコメント等々で荒れていたので新参者にはハードルが高かったので断念しました。
+I considered posting on Zenn or Qiita, but discussions around those platforms on X at the start of the year
+felt intimidating as a newcomer, so I decided to start with my own site instead.
 
-## SvelteKitとは？
+## What is SvelteKit?
 
-SvelteKitは、Svelteフレームワークのための**フルスタックWebアプリケーションフレームワーク**です。
+SvelteKit is a **full-stack web application framework** for Svelte.
 
-### 主な特徴
+### Key features
 
-1. **ファイルベースルーティング** - `src/routes/`ディレクトリにファイルを配置するだけでルーティングが自動生成されます
-2. **SSR・SSG対応** - サーバーサイドレンダリングと静的サイト生成の両方をサポート
-3. **高速なビルド** - Viteを使用した高速な開発体験
-4. **型安全** - TypeScriptとの統合が優れている
+1. **File-based routing** — Routes are generated from files in `src/routes/`
+2. **SSR and SSG support** — Both server-side rendering and static generation are available
+3. **Fast builds** — Vite provides a fast development experience
+4. **Type safety** — The TypeScript integration is excellent
 
-## このサイトの技術スタック
+## This site's stack
 
-- **フレームワーク**: SvelteKit
-- **スタイリング**: Tailwind CSS v4
-- **ブログ**: mdsvex (Markdown)
-- **デプロイ**: (お好みのプラットフォーム)
+- **Framework**: SvelteKit
+- **Styling**: Tailwind CSS v4
+- **Blog**: mdsvex (Markdown)
+- **Deployment**: Vercel
 
-### なぜSvelteKitを選んだか
+### Why SvelteKit?
 
-- シンプルで学習コストが低い
-- パフォーマンスが高い
-- モダンな開発体験
+- It is simple and has a low learning curve
+- It offers strong performance
+- It provides a modern development experience
 
-## Markdownブログの実装
+## Implementing a Markdown blog
 
-mdsvexを使うことで、Markdownファイルから簡単にブログ記事を生成できます。
+With mdsvex, blog posts can be generated directly from Markdown files.
 
 ```bash
 npm install -D mdsvex
 ```
 
-設定も簡単です:
+The configuration is simple:
 
 ```javascript
 // svelte.config.js
@@ -63,7 +62,7 @@ export default {
 };
 ```
 
-## まとめ
+## Closing
 
-SvelteKitは個人サイト構築に最適なフレームワークだと感じました。
-ぜひ試してみてください！
+SvelteKit felt like a great fit for a personal site.
+Give it a try!

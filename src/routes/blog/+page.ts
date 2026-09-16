@@ -28,7 +28,7 @@ export async function load() {
 		});
 	}
 
-	// 公開済みの記事のみフィルタリングし、日付順にソート
+	// Filter to published posts and sort them by date.
 	const publishedPosts = posts
 		.filter((post) => post.published)
 		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

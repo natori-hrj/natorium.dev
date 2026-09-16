@@ -1,20 +1,20 @@
 ---
-title: 'はじめての記事'
+title: 'My first post'
 date: '2026-01-10'
-description: 'ブログを始めました。Markdownで記事を書くことができます。'
-tags: ['雑記', 'はじめに']
+description: 'I started this blog. Posts are written and managed in Markdown.'
+tags: ['Notes', 'Intro']
 published: true
 ---
 
-# はじめに
+# Welcome
 
-このブログでは、技術的な話題や日々の学びについて書いていく予定です。
+I plan to write about technical topics and things I learn along the way.
 
-## Markdownについて
+## About Markdown
 
-Markdownは軽量マークアップ言語で、簡単に文書を記述することができます。
+Markdown is a lightweight markup language that makes it easy to write documents.
 
-### コードブロックの例
+### Code block example
 
 ```javascript
 function hello() {
@@ -22,12 +22,12 @@ function hello() {
 }
 ```
 
-### リストの例
+### List example
 
-- アイテム1
-- アイテム2
-- アイテム3
+- Item 1
+- Item 2
+- Item 3
 
-## まとめ
+## Closing
 
-これからいろいろな記事を書いていきます。よろしくお願いします！
+I hope to write many more posts. Thanks for reading!

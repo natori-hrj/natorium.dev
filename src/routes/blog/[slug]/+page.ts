@@ -9,6 +9,6 @@ export async function load({ params }) {
 			metadata: post.metadata
 		};
 	} catch {
-		throw error(404, `記事が見つかりませんでした: ${params.slug}`);
+		throw error(404, `Post not found: ${params.slug}`);
 	}
 }

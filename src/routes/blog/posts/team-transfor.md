@@ -1,60 +1,57 @@
 ---
-title: 'チーム異動の話'
+title: 'Moving to an AI enablement team'
 date: '2026-06-16'
-description: '社内でAI推進チームに異動しました。これからやること、自分のスタンスについて。'
-tags: ['チーム', '異動', 'AI']
+description: 'I moved to an internal AI enablement team: what changed, what comes next, and how I want to work.'
+tags: ['Team', 'Career', 'AI']
 published: true
 ---
 
-# チーム異動の話
+# Moving to an AI enablement team
 
-2026年6月16日付で、社内でAI推進チームへ異動しました。
-ちょっとした区切りなので、何が変わって、これから何をやるのかを書いておきます。
+On June 16, 2026, I moved to an internal AI enablement team.
+It felt like a good milestone, so I wanted to write down what changed and what I hope to work on next.
 
-## これまで
+## Before the move
 
-これまでは、大規模データ基盤の開発をメインでやってきました。
+I had mainly worked on large-scale data platforms:
 
-- 年間数十億件規模のデータを処理するパイプラインの構築
-- 経営情報を全社で参照できるようにする基盤（認証認可まわり）の開発
-- レガシーになっていたシステムをコードから解読して作り直す、みたいな仕事
+- Building pipelines that process billions of records every year
+- Developing a platform that makes management information available across the company
+- Reverse-engineering and rebuilding a legacy system that had become a black box
 
-「データの人」として動くことが多かったのですが、
-自分としてはずっと**バックエンドをちゃんと書けるエンジニアになりたい**という気持ちがありました。
+I was often seen as “the data person,” but I had always wanted to become an engineer who can write solid backend systems.
 
-## これから
+## What comes next
 
-異動先のAI推進チームでは、今のところこのあたりに取り組んでいく予定です。
+At the AI enablement team, I plan to focus on the following areas.
 
-### GraphRAG の調査・実証
+### Evaluating GraphRAG
 
-実際の案件をもとに、GraphRAG が本当に必要なのかを検証していきます。
-大事にしているのは「GraphRAG ありき」で進めないことで、
-普通の RAG をベースラインにして、**精度・コスト・レイテンシで定量的に比較**して判断するスタンスでやっています。
-基盤は Google Cloud で組んでいます。
+I am evaluating whether GraphRAG is actually necessary for a real-world use case.
+The important part is not assuming GraphRAG is the answer, but comparing it with a standard RAG baseline across **quality, cost, and latency**.
+The platform is built on Google Cloud.
 
-### 日次収支速報を見るためのバックエンド
+### Backend for daily profit reporting
 
-日次の収支（営業利益）をダッシュボードで見られるようにする、
-そのためのバックエンド（BFF）の設計・開発をやっています。
-要件のヒアリングから入って、API 設計・OpenAPI での契約・レスポンスの整形・認証認可まわりまで、
-**設計から実装まで通しで**関われているのが今はすごく楽しいです。
-スタックは Hono / OpenAPI（zod）/ Drizzle / vitest あたりを使っています。
+I am designing and building the backend that makes daily operating profit visible in a dashboard.
+I am involved from requirements gathering through API design, OpenAPI contracts, response shaping, authentication and authorization, and implementation.
 
-## 自分のスタンス
+It has been especially rewarding to work across the whole path from design to code.
+The stack includes Hono, OpenAPI (zod), Drizzle, and vitest.
 
-異動が決まったとき、上長には「**やりたいのはバックエンド**」とはっきり伝えました。
+## How I want to work
 
-とはいえ、AI から距離を置きたいわけではなくて、
-むしろ「データ × AI × バックエンド」を掛け算できると、
-自分にしかない強みになるんじゃないかと思っています。
-「データの人」で止まらず、**設計してコードを書けるバックエンドエンジニア**に寄せていきたい。
+When the move was decided, I told my manager clearly: **I want to work on backend engineering.**
 
-この異動は、その掛け算の“AI”の部分を実務で積める機会だと捉えています。
-焦らず、ちゃんと手を動かして経験に変えていきます。
+That does not mean I want to stay away from AI.
+I think combining “data × AI × backend” could become a strength that is uniquely mine.
+Rather than stopping at being “the data person,” I want to move toward being a backend engineer who can design systems and write the code.
 
-## おわりに
+This move gives me a chance to build the AI part of that combination through real work.
+I want to take it one step at a time and turn the experience into durable skills.
 
-まだ役割が固まりきっていない、流動的なフェーズです。
-新しい環境は不安もありますが、やれることが増えるのは単純に楽しみです。
-また進捗があったら書きます。
+## Closing
+
+My role is still taking shape, and the current phase is fluid.
+The new environment is a little intimidating, but I am genuinely excited about having more ways to contribute.
+I will write another update when there is more to share.

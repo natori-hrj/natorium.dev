@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+	<title>natori</title>
+	<rect width="64" height="64" fill="#000" />
+	<path d="M16 48V16h6l20 21V16h6v32h-6L22 27v21z" fill="#fff" />
+</svg>
