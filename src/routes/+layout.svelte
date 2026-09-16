@@ -51,7 +51,7 @@
 </script>
 
 <svelte:head>
-	<title>natori's Site</title>
+	<title>natorium.dev</title>
 </svelte:head>
 
 <header class="site-header sticky top-0 z-50" style="view-transition-name: header;">
