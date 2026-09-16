@@ -23,7 +23,7 @@
 	<div
 		class="press mb-8 h-24 w-24 overflow-hidden rounded-3xl border border-black transition-opacity hover:opacity-70 dark:border-white"
 	>
-		<img src="/mark.svg" alt={profile.name} class="h-full w-full" />
+		<img src="/profile.jpg" alt={profile.name} class="h-full w-full" />
 	</div>
 
 	<h1 class="mb-3 font-sans text-4xl font-bold tracking-tight text-black dark:text-white">
