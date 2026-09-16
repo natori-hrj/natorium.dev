@@ -3,36 +3,36 @@
 
 	const projects = [
 		{
-			title: 'TiDB へのOSSコントリビュート',
+			title: 'Open-source contribution to TiDB',
 			description:
-				'Go製の分散SQLデータベース TiDB（PingCAP）へ、オプティマイザのヒント警告に関するバグ修正PRを提出しマージ達成。good first issueから2 LGTM・CI全通過を経て完走した、初のOSSコントリビュートです。',
+				'Contributed a bug-fix PR for optimizer hint warnings to TiDB, a Go-based distributed SQL database by PingCAP. My first open-source contribution, completed from a good first issue through two LGTM reviews and fully passing CI.',
 			technologies: ['Go'],
 			github: 'https://github.com/pingcap/tidb/pull/68697',
 			demo: null,
 			featured: true
 		},
 		{
-			title: '日次収支速報 BFF',
+			title: 'Daily profit reporting BFF',
 			description:
-				'経営ダッシュボードへ日次の営業利益（収支速報）を提供するBFF（Backend For Frontend）。要件定義・API設計から実装まで担当し、OpenAPI契約・レスポンス整形・認証認可・テストを設計。データ源をBlobからBigQueryへ差し替える構成で進めています。',
+				'A BFF (Backend For Frontend) that delivers daily operating profit data to a management dashboard. I handle requirements, API design, implementation, OpenAPI contracts, response shaping, authentication, authorization, and testing while migrating the data source from Blob to BigQuery.',
 			technologies: ['TypeScript', 'Hono', 'OpenAPI (zod)', 'Drizzle ORM', 'vitest', 'BigQuery'],
 			github: null,
 			demo: null,
 			featured: true
 		},
 		{
-			title: 'EC荷物可視化システムの内製移行',
+			title: 'In-house migration of an e-commerce parcel tracking system',
 			description:
-				'年間約50億件（日次約1,370万件）の荷物データを約10分間隔でニアリアルタイム処理するパイプラインを主担当。ブラックボックス化していた既存システムをコードから解読・文書化して再構築し、差分処理＋荷物ID単位の重複排除で冪等化しました。',
+				'Led a near-real-time pipeline processing roughly 5 billion parcel records per year (13.7 million per day) at ten-minute intervals. Rebuilt a black-box legacy system from its code and documentation, making it idempotent with incremental processing and parcel-ID deduplication.',
 			technologies: ['Azure Data Factory', 'Delta Lake', 'PySpark', 'PowerBI', 'Next.js'],
 			github: null,
 			demo: null,
 			featured: true
 		},
 		{
-			title: '経営情報SSOT（Single Source of Truth）',
+			title: 'Management information SSOT (Single Source of Truth)',
 			description:
-				'全社の経営情報を統合し、全国の営業所長クラスまでが同じ情報を参照できる基盤を開発。認証認可・権限管理を担当し、多層認可や動的アクセス制御を設計。現在はPowerBI画面のWebアプリ移行（Apache ECharts採用）と、Azure→Google Cloud移行を推進中。',
+				'Built a platform that consolidates company-wide management information so leaders across the country can work from the same source of truth. Designed authentication, authorization, layered permissions, and dynamic access control. Currently migrating Power BI screens to a web application with Apache ECharts and moving the platform from Azure to Google Cloud.',
 			technologies: [
 				'Next.js',
 				'TypeScript',
@@ -47,18 +47,18 @@
 			featured: true
 		},
 		{
-			title: 'GraphRAG 調査・実証',
+			title: 'GraphRAG research and evaluation',
 			description:
-				'AI推進チームにて、実案件をもとにGraphRAGの必要性を定量的に検証。「GraphRAGありき」ではなく通常のRAGをベースラインに、精度・コスト・レイテンシで比較して判断する方針で取り組んでいます。基盤はGoogle Cloudで構築。',
+				'Quantitatively evaluating whether GraphRAG is necessary using a real-world use case. Rather than assuming GraphRAG is the answer, I compare it with a standard RAG baseline across quality, cost, and latency. The platform runs on Google Cloud.',
 			technologies: ['Python', 'LLM', 'GraphRAG / RAG', 'Google Cloud'],
 			github: null,
 			demo: null,
 			featured: false
 		},
 		{
-			title: '個人サイト (このサイト)',
+			title: 'Personal website (this site)',
 			description:
-				'SvelteKitとTailwind CSSを使用して構築した個人ブログサイトです。Markdownでブログ記事を管理できます。',
+				'A personal website and blog built with SvelteKit and Tailwind CSS. Blog posts are managed in Markdown.',
 			technologies: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'mdsvex'],
 			github: 'https://github.com/natori-hrj/natorium.dev',
 			demo: null,
@@ -67,7 +67,7 @@
 		{
 			title: 'iss-tracker-cli',
 			description:
-				'ISSの現在位置をリアルタイムでターミナルに表示するCLIツール。ASCIIアートで地球を描き、乗組員情報や自分の現在地からの距離も表示。',
+				'A CLI that displays the International Space Station in real time. Includes an ASCII Earth, crew information, and distance from your current location.',
 			technologies: ['Go'],
 			github: 'https://github.com/natori-hrj/iss-tracker-cli',
 			demo: null,
@@ -76,7 +76,7 @@
 		{
 			title: 'nasa-apod-cli',
 			description:
-				'NASAの「Astronomy Picture of the Day」をターミナルから閲覧できるCLIツール。ASCIIアートで画像表示、日本語翻訳、ランダム取得に対応。',
+				"A CLI for browsing NASA's Astronomy Picture of the Day from the terminal, with ASCII image rendering, Japanese translation, and random lookup.",
 			technologies: ['Go'],
 			github: 'https://github.com/natori-hrj/nasa-apod-cli',
 			demo: null,
@@ -85,7 +85,7 @@
 		{
 			title: 'spotify-now-playing-cli',
 			description:
-				'Spotifyで再生中の曲をターミナルに表示するCLIツール。進捗バーや再生履歴表示に対応。',
+				'A CLI that shows the currently playing Spotify track in the terminal, including a progress bar and playback history.',
 			technologies: ['Go'],
 			github: 'https://github.com/natori-hrj/spotify-now-playing-cli',
 			demo: null,
@@ -94,7 +94,7 @@
 		{
 			title: 'debt-checker',
 			description:
-				'Pythonコードの技術的負債を検出・可視化するCLIツール。100点満点のスコアで健全性を評価。',
+				'A CLI that detects and visualizes technical debt in Python code, with a 100-point health score.',
 			technologies: ['Python'],
 			github: 'https://github.com/natori-hrj/debt-checker',
 			demo: null,
@@ -103,7 +103,7 @@
 		{
 			title: 'readme-score',
 			description:
-				'README.mdの品質を100点満点でスコアリングするCLIツール。ローカルファイルとGitHub URLの両方に対応。',
+				'A CLI that scores README.md quality out of 100, supporting both local files and GitHub URLs.',
 			technologies: ['Python'],
 			github: 'https://github.com/natori-hrj/readme-score',
 			demo: null,
@@ -111,15 +111,15 @@
 		},
 		{
 			title: 'nvim-databricks',
-			description: 'NeovimでPythonファイルをDatabricksの任意のクラスターで実行できるプラグイン。',
+			description: 'A Neovim plugin for running Python files on any Databricks cluster.',
 			technologies: ['Lua'],
 			github: 'https://github.com/natori-hrj/nvim-databricks',
 			demo: null,
 			featured: false
 		},
 		{
-			title: 'Dogger Log（開発中）',
-			description: '愛犬の健康管理・成長記録・お出かけ記録Webアプリ。',
+			title: 'Dogger Log (in development)',
+			description: "A web app for tracking a dog's health, growth, and outings.",
 			technologies: ['Go', 'Next.js', 'PostgreSQL', 'GCP'],
 			github: 'https://github.com/natori-hrj/dogger-log',
 			demo: null,
@@ -130,41 +130,39 @@
 
 <svelte:head>
 	<title>Projects - natori's Site</title>
-	<meta name="description" content="プロジェクトと成果物の紹介" />
+	<meta name="description" content="Selected projects and things I have built." />
 </svelte:head>
 
 <div class="max-w-4xl">
-	<h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">Projects</h1>
-	<p class="mb-12 text-gray-600 dark:text-gray-400">
-		これまでに取り組んだプロジェクトや成果物です。
-	</p>
+	<h1 class="mb-4 text-4xl font-bold text-black dark:text-white">Projects</h1>
+	<p class="mb-12 text-black/60 dark:text-white/65">Selected projects and things I have built.</p>
 
 	<div class="space-y-8">
 		{#each projects as project (project.title)}
 			<article
-				class="rounded-lg border border-gray-200 p-6 transition-colors hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600"
+				class="rounded-2xl border border-black/15 p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg dark:border-white/20"
 			>
 				<div class="mb-3 flex items-start justify-between">
-					<h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+					<h2 class="text-2xl font-bold text-black dark:text-white">
 						{project.title}
 					</h2>
 					{#if project.featured}
 						<span
-							class="rounded bg-blue-100 px-2 py-1 text-xs font-semibold text-blue-600 dark:bg-blue-900 dark:text-blue-400"
+							class="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white dark:bg-white dark:text-black"
 						>
 							Featured
 						</span>
 					{/if}
 				</div>
 
-				<p class="mb-4 text-gray-700 dark:text-gray-300">
+				<p class="mb-4 text-black/70 dark:text-white/75">
 					{project.description}
 				</p>
 
 				<div class="mb-4 flex flex-wrap gap-2">
 					{#each project.technologies as tech (tech)}
 						<span
-							class="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700 dark:bg-gray-800 dark:text-gray-300"
+							class="rounded-full border border-black/20 px-3 py-1 text-sm text-black/75 dark:border-white/25 dark:text-white/80"
 						>
 							{tech}
 						</span>
@@ -178,7 +176,7 @@
 								href={project.github}
 								target="_blank"
 								rel="external noopener noreferrer"
-								class="inline-flex items-center gap-2 text-blue-500 hover:underline dark:text-blue-400"
+								class="inline-flex items-center gap-2 text-black underline-offset-4 hover:underline dark:text-white"
 							>
 								<Github size={16} />
 								GitHub
@@ -189,7 +187,7 @@
 								href={project.demo}
 								target="_blank"
 								rel="external noopener noreferrer"
-								class="inline-flex items-center gap-2 text-blue-500 hover:underline dark:text-blue-400"
+								class="inline-flex items-center gap-2 text-black underline-offset-4 hover:underline dark:text-white"
 							>
 								<ExternalLink size={16} />
 								Demo

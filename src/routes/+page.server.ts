@@ -1,19 +1,19 @@
 import type { PageServerLoad } from './$types';
 
-// +page.server.ts が外部に公開できるのは load などの決まった名前だけなので、
-// これらの定数はエクスポートせずファイル内に閉じる。
+// SvelteKit only exposes specific names such as load from +page.server.ts,
+// so keep these constants private to this module.
 const GITHUB_USERNAME = 'natori-hrj';
 
-// 公開APIのため認証トークン不要。GitHubの草データを日単位(level 0-4)で返す。
+// No authentication token is needed. The public API returns daily contribution levels (0-4).
 const CONTRIBUTIONS_API = `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`;
 
-// トップで推すプロジェクト。文言はここで固定し、スター数だけGitHubから取る。
+// The project featured on the home page. Copy is fixed here; only the star count is fetched from GitHub.
 const FEATURED_REPO = {
 	owner: GITHUB_USERNAME,
 	name: 'herdr-lazy',
 	url: `https://github.com/${GITHUB_USERNAME}/herdr-lazy`,
 	description:
-		'herdr のプラグインを宣言的に管理するプラグインマネージャ。ひとつのリストとロックファイルで構成を固定し、管理用のTUIペインから操作できます。',
+		'A declarative plugin manager for herdr. Pin your setup with a single list and lockfile, then manage it from a dedicated TUI pane.',
 	language: 'Rust',
 	topics: ['CLI', 'TUI', 'plugin-manager', 'lockfile']
 };
@@ -35,8 +35,8 @@ const fetchContributions = async (fetchFn: typeof fetch) => {
 		};
 		return { total: data.total.lastYear, days: data.contributions };
 	} catch (error) {
-		// 取得に失敗してもトップページ自体は表示したいので、null にして描画側で非表示にする。
-		console.error('[contributions] GitHubの草の取得に失敗しました:', error);
+		// Keep the home page available even if the request fails; the UI hides the graph when null.
+		console.error('[contributions] Failed to fetch GitHub contributions:', error);
 		return null;
 	}
 };
@@ -52,8 +52,8 @@ const fetchStars = async (fetchFn: typeof fetch) => {
 		const data = (await res.json()) as { stargazers_count: number };
 		return data.stargazers_count;
 	} catch (error) {
-		// 未認証だとレート制限に当たることがある。その場合はスター数だけ出さない。
-		console.error('[featured] スター数の取得に失敗しました:', error);
+		// Unauthenticated requests can hit the rate limit; hide only the star count in that case.
+		console.error('[featured] Failed to fetch the featured repository stars:', error);
 		return null;
 	}
 };
@@ -61,7 +61,7 @@ const fetchStars = async (fetchFn: typeof fetch) => {
 export const load: PageServerLoad = async ({ fetch, setHeaders }) => {
 	const [contributions, stars] = await Promise.all([fetchContributions(fetch), fetchStars(fetch)]);
 
-	// どちらも1日〜数時間単位でしか変わらないので、CDN側で1時間キャッシュして呼び出しを抑える。
+	// Both values change at most hourly, so cache them at the CDN for one hour.
 	setHeaders({ 'cache-control': 'public, max-age=0, s-maxage=3600' });
 
 	return {

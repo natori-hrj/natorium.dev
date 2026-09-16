@@ -1,5 +1,5 @@
 <script lang="ts">
-	// lucide-svelte のアイコンと同じ使い勝手にするため size を受け取る
+	// Accept size to match the lucide-svelte icon API.
 	let { size = 24 }: { size?: number } = $props();
 </script>
 

@@ -2,23 +2,23 @@
 	import { onMount } from 'svelte';
 	import type { Component, ComponentType } from 'svelte';
 
-	// lucide-svelte は旧来のクラスコンポーネント、自作アイコンはSvelte 5のコンポーネント。
-	// 両方を受け付けられるようにユニオンで定義する。
+	// lucide-svelte uses legacy class components while custom icons use Svelte 5 components.
+	// Accept both through a union type.
 	type IconComponent = ComponentType | Component<{ size?: number }>;
 	type DockItem = { name: string; url: string; icon: IconComponent };
 
 	let { items }: { items: DockItem[] } = $props();
 
-	// 拡大率とカーソルの影響範囲。macOSのDockに近い効き方になる値。
+	// Magnification and cursor influence radius, tuned to feel similar to the macOS Dock.
 	const MAX_SCALE = 1.45;
 	const SIGMA = 55;
 
 	let slotEls = $state<HTMLElement[]>([]);
-	// 未計測のうちは等倍。ポインタが乗った時点で各スロットの拡大率が入る。
+	// Use a scale of one until the slots have been measured and the pointer enters the dock.
 	let scales = $state<number[]>([]);
 	let hovered = $state<number | null>(null);
 
-	// マウス操作かつモーション許可時のみ拡大する。タッチ端末では誤作動するため無効。
+	// Magnify only for mouse input when motion is allowed; disable it on touch devices.
 	let canMagnify = false;
 
 	onMount(() => {
@@ -34,7 +34,7 @@
 			if (!el) return 1;
 			const rect = el.getBoundingClientRect();
 			const distance = event.clientX - (rect.left + rect.width / 2);
-			// ガウス分布で中心から離れるほどなだらかに小さくする
+			// Use a Gaussian curve so the scale falls off smoothly away from the pointer.
 			return 1 + (MAX_SCALE - 1) * Math.exp(-(distance * distance) / (2 * SIGMA * SIGMA));
 		});
 	};
@@ -49,7 +49,7 @@
 	class="dock"
 	onpointermove={handlePointerMove}
 	onpointerleave={reset}
-	aria-label="ソーシャルリンク"
+	aria-label="Social links"
 >
 	{#each items as item, index (item.name)}
 		{@const Icon = item.icon}
@@ -77,18 +77,16 @@
 <style>
 	.dock {
 		--dock-size: 44px;
-		/* 最大拡大時に隣のアイコンと重ならない間隔 */
-		--dock-gap: 16px;
+		/* Keep enough space between icons at maximum magnification. */
+		--dock-gap: 14px;
 
 		display: inline-flex;
 		align-items: flex-end;
 		gap: var(--dock-gap);
 		padding: 10px 14px;
-		border-radius: 22px;
-		background-color: var(--glass-bg);
-		backdrop-filter: blur(20px) saturate(180%);
-		-webkit-backdrop-filter: blur(20px) saturate(180%);
-		border: 1px solid var(--glass-border);
+		border-radius: 9999px;
+		background-color: var(--surface-color);
+		border: 1px solid var(--border-color);
 		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 	}
 
@@ -98,13 +96,12 @@
 		height: var(--dock-size);
 	}
 
-	/* アイコンが5つあるので、狭い画面では一回り小さくして収める */
+	/* Fit all five icons on narrow screens by reducing their size slightly. */
 	@media (max-width: 420px) {
 		.dock {
 			--dock-size: 38px;
 			--dock-gap: 10px;
 			padding: 8px 10px;
-			border-radius: 18px;
 		}
 	}
 
@@ -113,10 +110,11 @@
 		inset: 0;
 		display: grid;
 		place-items: center;
+		border: 0;
 		border-radius: 12px;
-		color: rgb(55 65 81);
-		background-color: rgba(0, 0, 0, 0.05);
-		/* 下端を軸に拡大すると、Dockのアイコンが持ち上がるように見える */
+		color: var(--text-color);
+		background-color: transparent;
+		/* Scaling from the bottom makes the icons appear to lift from the dock. */
 		transform-origin: bottom center;
 		transition:
 			transform 0.12s cubic-bezier(0.22, 1, 0.36, 1),
@@ -125,34 +123,24 @@
 	}
 
 	.dock-item:hover {
-		color: rgb(59 130 246);
+		color: var(--bg-color);
+		background-color: var(--text-color);
 	}
 
-	:global(.dark) .dock-item {
-		color: rgb(209 213 219);
-		background-color: rgba(255, 255, 255, 0.08);
-	}
-
-	:global(.dark) .dock-item:hover {
-		color: rgb(96 165 250);
-	}
-
-	/* ラベルは拡大対象の外に置き、文字が歪まないようにする */
+	/* Keep labels outside the scaled element so the text never distorts. */
 	.dock-label {
 		position: absolute;
 		bottom: calc(100% + 12px);
 		left: 50%;
 		transform: translateX(-50%);
 		padding: 4px 10px;
-		border-radius: 9px;
+		border-radius: 9999px;
 		font-size: 12px;
 		white-space: nowrap;
 		pointer-events: none;
-		background-color: var(--glass-bg);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		border: 1px solid var(--glass-border);
-		color: var(--text-color);
+		border: 1px solid var(--border-color);
+		background-color: var(--text-color);
+		color: var(--bg-color);
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -160,15 +148,6 @@
 			transition:
 				color 0.2s,
 				background-color 0.2s;
-		}
-	}
-
-	@media (prefers-reduced-transparency: reduce) {
-		.dock,
-		.dock-label {
-			background-color: var(--bg-color);
-			backdrop-filter: none;
-			-webkit-backdrop-filter: none;
 		}
 	}
 </style>

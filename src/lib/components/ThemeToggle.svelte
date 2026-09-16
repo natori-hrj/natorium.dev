@@ -33,8 +33,8 @@
 
 <button
 	onclick={toggleTheme}
-	class="relative overflow-hidden rounded-lg border border-gray-300 p-2 text-gray-700 transition-all duration-200 hover:scale-110 hover:bg-gray-200 active:scale-95 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
-	aria-label="テーマ切り替え"
+	class="relative appearance-none overflow-hidden rounded-full border border-black bg-white p-2 text-black transition-colors duration-200 hover:bg-black hover:text-white active:scale-95 dark:border-white dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black"
+	aria-label="Toggle theme"
 >
 	<div class="relative h-5 w-5">
 		{#if isDark}
