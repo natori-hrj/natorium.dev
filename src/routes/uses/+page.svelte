@@ -1,15 +1,11 @@
 <script lang="ts">
 	const uses = [
 		{
-			category: 'Editors & IDEs',
+			category: 'Editor',
 			items: [
 				{
-					name: 'Vim / Neovim',
-					description: 'My primary editor. Fast and lightweight.'
-				},
-				{
-					name: 'Visual Studio Code',
-					description: 'Useful for inspecting CSV and Parquet files.'
+					name: 'Neovim',
+					description: 'My primary editor for fast, keyboard-driven development.'
 				}
 			]
 		},
@@ -17,25 +13,8 @@
 			category: 'Terminal',
 			items: [
 				{
-					name: 'WezTerm',
-					description: 'A fast terminal emulator written in Rust.'
-				}
-			]
-		},
-		{
-			category: 'Development tools',
-			items: [
-				{
-					name: 'Docker Desktop',
-					description: 'For building local development environments.'
-				},
-				{
-					name: 'Postman',
-					description: 'For API development and testing.'
-				},
-				{
-					name: 'Databricks / Azure Data Factory',
-					description: 'For large-scale data processing.'
+					name: 'Ghostty',
+					description: 'My current terminal for personal development.'
 				}
 			]
 		},
@@ -43,42 +22,34 @@
 			category: 'AI & development assistance',
 			items: [
 				{
-					name: 'Claude Code',
-					description: 'Used daily for coding, refactoring, and research.'
+					name: 'Codex',
+					description: 'For implementation, review, and repository maintenance.'
 				},
 				{
-					name: 'GitHub Copilot',
-					description: 'Inline completions and suggestions in the editor.'
-				},
-				{
-					name: 'Gemini',
-					description: 'For research, brainstorming, and organizing information.'
+					name: 'Grok Build',
+					description: 'For exploring and prototyping personal projects.'
 				}
 			]
 		},
 		{
-			category: 'Browser',
+			category: 'Development tools',
 			items: [
 				{
-					name: 'Google Chrome',
-					description: 'My primary browser.'
+					name: 'herdr',
+					description: 'For managing a declarative and reproducible terminal plugin setup.'
 				}
 			]
 		},
 		{
-			category: 'Other',
+			category: 'Services',
 			items: [
-				{
-					name: 'Notion',
-					description: 'For documentation, notes, and task management.'
-				},
 				{
 					name: 'GitHub',
 					description: 'For project management, code, and CI/CD.'
 				},
 				{
-					name: 'Slack',
-					description: 'For team communication.'
+					name: 'Vercel',
+					description: 'For hosting, preview deployments, and production releases.'
 				}
 			]
 		}
@@ -87,13 +58,13 @@
 
 <svelte:head>
 	<title>Uses - natori's Site</title>
-	<meta name="description" content="My development setup and favorite tools." />
+	<meta name="description" content="The tools I use for recent personal development." />
 </svelte:head>
 
 <div class="max-w-4xl">
 	<h1 class="mb-4 text-4xl font-bold text-black dark:text-white">Uses</h1>
 	<p class="mb-12 text-black/60 dark:text-white/65">
-		The development setup and tools I use every day.
+		The tools I use for recent personal development.
 	</p>
 
 	<div class="space-y-10">
