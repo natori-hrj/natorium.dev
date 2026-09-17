@@ -1,16 +1,21 @@
 <script lang="ts">
-	import { Code2, Server, Cloud, Bot, Wrench } from 'lucide-svelte';
+	import { Code2, Server, Cloud, Bot, Wrench, Database } from 'lucide-svelte';
 
 	const techStack = [
 		{
 			category: 'Languages',
 			icon: Code2,
-			items: ['TypeScript / JavaScript', 'Rust']
+			items: ['Python', 'Go', 'TypeScript / JavaScript', 'Rust']
 		},
 		{
 			category: 'Web & frontend',
 			icon: Server,
 			items: ['SvelteKit / Svelte', 'Tailwind CSS', 'Vite', 'mdsvex']
+		},
+		{
+			category: 'Data engineering',
+			icon: Database,
+			items: ['Databricks']
 		},
 		{
 			category: 'AI & coding agents',

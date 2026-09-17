@@ -35,6 +35,10 @@
 			category: 'Development tools',
 			items: [
 				{
+					name: 'Databricks',
+					description: 'For large-scale data processing and data engineering.'
+				},
+				{
 					name: 'herdr',
 					description: 'For managing a declarative and reproducible terminal plugin setup.'
 				}
