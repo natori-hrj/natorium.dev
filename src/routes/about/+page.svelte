@@ -167,7 +167,7 @@
 			<div class="mt-1">
 				<MessageCircle size={20} class="text-black dark:text-white" />
 			</div>
-			<p>Reach me via GitHub or LinkedIn.</p>
+			<p>Reach me via GitHub or X.</p>
 		</div>
 	</div>
 </div>
