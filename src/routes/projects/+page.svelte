@@ -94,26 +94,29 @@
 
 <div class="max-w-4xl">
 	<h1 class="mb-4 text-4xl font-bold text-black dark:text-white">Projects</h1>
-	<p class="mb-12 text-black/60 dark:text-white/65">
+	<p class="mb-14 max-w-2xl leading-7 text-black/60 dark:text-white/65">
 		Personal projects, open-source contributions, and selected professional work.
 	</p>
 
-	<div class="space-y-16">
+	<div class="space-y-20">
 		{#each sections as section (section.id)}
 			<section aria-labelledby={section.id}>
-				<h2
-					id={section.id}
-					class="mb-6 text-xs font-bold tracking-widest text-black/55 uppercase dark:text-white/60"
-				>
-					{section.title}
-				</h2>
+				<div class="mb-6 flex items-center gap-4">
+					<h2
+						id={section.id}
+						class="shrink-0 text-xs font-bold tracking-widest text-black/55 uppercase dark:text-white/60"
+					>
+						{section.title}
+					</h2>
+					<span class="h-px flex-1 bg-black/10 dark:bg-white/15" aria-hidden="true"></span>
+				</div>
 
-				<div class="space-y-8">
+				<div class="space-y-5">
 					{#each section.projects as project (project.title)}
 						<article
-							class="rounded-2xl border border-black/15 p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg dark:border-white/20"
+							class="rounded-3xl border border-black/10 p-7 transition duration-300 hover:-translate-y-0.5 hover:border-black/25 dark:border-white/15 dark:hover:border-white/30"
 						>
-							<div class="mb-3 flex items-start justify-between">
+							<div class="mb-4 flex flex-wrap items-start justify-between gap-3">
 								<h3 class="text-2xl font-bold text-black dark:text-white">
 									{project.title}
 								</h3>
@@ -126,11 +129,11 @@
 								{/if}
 							</div>
 
-							<p class="mb-4 text-black/70 dark:text-white/75">
+							<p class="mb-5 max-w-2xl leading-7 text-black/70 dark:text-white/75">
 								{project.description}
 							</p>
 
-							<div class="mb-4 flex flex-wrap gap-2">
+							<div class="mb-5 flex flex-wrap gap-2.5">
 								{#each project.technologies as tech (tech)}
 									<span
 										class="rounded-full border border-black/20 px-3 py-1 text-sm text-black/75 dark:border-white/25 dark:text-white/80"
