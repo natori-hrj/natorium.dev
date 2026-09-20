@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { Briefcase, Award, BookOpen, MessageCircle, GitPullRequest } from 'lucide-svelte';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>About - natori's Site</title>
-	<meta name="description" content="About natori, a backend engineer working with data and AI." />
-</svelte:head>
+<Seo
+	title="About - natori's Site"
+	description="About natori, a backend engineer working with data and AI."
+	path="/about"
+/>
 
 <div class="max-w-3xl">
 	<h1 class="mb-8 text-4xl font-bold text-black dark:text-white">About me</h1>

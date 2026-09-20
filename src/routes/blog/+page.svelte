@@ -1,8 +1,15 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 </script>
+
+<Seo
+	title="Blog - natori's Site"
+	description="Notes on backend engineering, data platforms, AI, and personal development."
+	path="/blog"
+/>
 
 <h1 class="mb-8 text-3xl font-bold text-black dark:text-white">Blog</h1>
 

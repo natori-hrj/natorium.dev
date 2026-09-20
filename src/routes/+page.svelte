@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ContributionGraph from '$lib/components/ContributionGraph.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 	import { Star, ArrowUpRight } from 'lucide-svelte';
 
 	let { data } = $props();
@@ -12,12 +13,11 @@
 	};
 </script>
 
-<svelte:head>
-	<meta
-		name="description"
-		content="natori - Backend Engineer working with large-scale data and AI."
-	/>
-</svelte:head>
+<Seo
+	title="natori — Backend Engineer · Data & AI"
+	description="natori's personal website and blog about backend engineering, data platforms, and AI."
+	path="/"
+/>
 
 <div class="rise flex flex-col items-center justify-center py-20 text-center sm:py-28">
 	<div
