@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ExternalLink, Github } from 'lucide-svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	const projects = [
 		{
@@ -128,10 +129,11 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Projects - natori's Site</title>
-	<meta name="description" content="Selected projects and things I have built." />
-</svelte:head>
+<Seo
+	title="Projects - natori's Site"
+	description="Selected projects and things I have built."
+	path="/projects"
+/>
 
 <div class="max-w-4xl">
 	<h1 class="mb-4 text-4xl font-bold text-black dark:text-white">Projects</h1>

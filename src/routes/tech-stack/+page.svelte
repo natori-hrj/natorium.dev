@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Code2, Server, Cloud, Bot, Wrench, Database } from 'lucide-svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	const techStack = [
 		{
@@ -35,10 +36,11 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Tech Stack - natori's Site</title>
-	<meta name="description" content="Recent technologies I use in personal projects." />
-</svelte:head>
+<Seo
+	title="Tech Stack - natori's Site"
+	description="Recent technologies I use in personal projects."
+	path="/tech-stack"
+/>
 
 <div class="max-w-4xl">
 	<h1 class="mb-4 text-4xl font-bold text-black dark:text-white">Tech Stack</h1>

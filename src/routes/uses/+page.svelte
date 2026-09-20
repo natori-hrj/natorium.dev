@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Seo from '$lib/components/Seo.svelte';
+
 	const uses = [
 		{
 			category: 'Editor',
@@ -60,10 +62,11 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Uses - natori's Site</title>
-	<meta name="description" content="The tools I use for recent personal development." />
-</svelte:head>
+<Seo
+	title="Uses - natori's Site"
+	description="The tools I use for recent personal development."
+	path="/uses"
+/>
 
 <div class="max-w-4xl">
 	<h1 class="mb-4 text-4xl font-bold text-black dark:text-white">Uses</h1>

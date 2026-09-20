@@ -46,10 +46,6 @@
 	] as const;
 </script>
 
-<svelte:head>
-	<title>natorium.dev</title>
-</svelte:head>
-
 <header class="site-header sticky top-0 z-50" style="view-transition-name: header;">
 	<!-- Allow the navigation to wrap on narrow screens so the page never overflows horizontally. -->
 	<div

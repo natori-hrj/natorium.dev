@@ -1,13 +1,18 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 </script>
 
-<svelte:head>
-	<title>{data.metadata.title} - natori's Site</title>
-	<meta name="description" content={data.metadata.description} />
-</svelte:head>
+<Seo
+	title={`${data.metadata.title} - natori's Site`}
+	description={data.metadata.description ?? data.metadata.title}
+	path={`/blog/${data.slug}`}
+	type="article"
+	publishedTime={data.metadata.date}
+	tags={data.metadata.tags}
+/>
 
 <article class="max-w-3xl">
 	<header class="mb-8 border-b border-black/15 pb-6 dark:border-white/20">
