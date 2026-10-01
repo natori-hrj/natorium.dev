@@ -7,15 +7,13 @@
 	import { onNavigate } from '$app/navigation';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import github from 'lucide-svelte/icons/github';
-	import twitter from 'lucide-svelte/icons/twitter';
-	import LeetCodeIcon from '$lib/components/icons/LeetCodeIcon.svelte';
+	import XIcon from '$lib/components/icons/XIcon.svelte';
 
 	let { children } = $props();
 
 	const socialLinks = [
 		{ name: 'GitHub', url: 'https://github.com/natori-hrj', icon: github },
-		{ name: 'LeetCode', url: 'https://leetcode.com/u/natori-hrj/', icon: LeetCodeIcon },
-		{ name: 'X', url: 'https://x.com/nator1_hrj', icon: twitter }
+		{ name: 'X', url: 'https://x.com/nator1_hrj', icon: XIcon }
 	];
 
 	// Vercel Web Analytics. Tracks page views, including client-side navigation.
@@ -46,10 +44,15 @@
 	] as const;
 </script>
 
+<div
+	class="site-rails pointer-events-none fixed inset-y-0 left-1/2 z-0 hidden w-[calc(100%-2rem)] max-w-6xl -translate-x-1/2 border-x border-dashed border-black/10 lg:block dark:border-white/10"
+	aria-hidden="true"
+></div>
+
 <header class="site-header sticky top-0 z-50" style="view-transition-name: header;">
 	<!-- Allow the navigation to wrap on narrow screens so the page never overflows horizontally. -->
 	<div
-		class="mx-auto flex max-w-screen-md flex-wrap items-center justify-between gap-y-2 px-4 py-3"
+		class="relative z-10 mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-2 px-5 py-3"
 	>
 		<a
 			href={resolve('/')}
@@ -73,7 +76,7 @@
 </header>
 
 <!-- Keep the dock fixed to the bottom and reserve space so content is not hidden behind it. -->
-<div class="mx-auto max-w-screen-md px-4 pt-8 pb-32 antialiased">
+<div class="relative z-10 mx-auto max-w-6xl px-5 pt-8 pb-32 antialiased">
 	<main style="view-transition-name: page;">
 		{@render children()}
 	</main>
