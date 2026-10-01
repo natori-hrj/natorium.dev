@@ -1,20 +1,12 @@
 <script lang="ts">
 	import './layout.css';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
-	import Dock from '$lib/components/Dock.svelte';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 	import { onNavigate } from '$app/navigation';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
-	import github from 'lucide-svelte/icons/github';
-	import XIcon from '$lib/components/icons/XIcon.svelte';
 
 	let { children } = $props();
-
-	const socialLinks = [
-		{ name: 'GitHub', url: 'https://github.com/natori-hrj', icon: github },
-		{ name: 'X', url: 'https://x.com/nator1_hrj', icon: XIcon }
-	];
 
 	// Vercel Web Analytics. Tracks page views, including client-side navigation.
 	// Events are sent only in production; local development sends nothing.
@@ -75,19 +67,9 @@
 	</div>
 </header>
 
-<!-- Keep the dock fixed to the bottom and reserve space so content is not hidden behind it. -->
-<div class="relative z-10 mx-auto max-w-6xl px-5 pt-8 pb-32 antialiased">
+<!-- Keep the content centered with comfortable page-level spacing. -->
+<div class="relative z-10 mx-auto max-w-6xl px-5 pt-8 pb-12 antialiased">
 	<main style="view-transition-name: page;">
 		{@render children()}
 	</main>
 </div>
-
-<!-- Let pointer events pass through the wrapper; only the dock itself is interactive. -->
-<footer
-	class="dock-bar pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center"
-	style="view-transition-name: dock;"
->
-	<div class="pointer-events-auto">
-		<Dock items={socialLinks} />
-	</div>
-</footer>
