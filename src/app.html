@@ -5,6 +5,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="author" content="natori" />
 		<meta name="theme-color" content="#000000" />
+		<script>
+			(() => {
+				try {
+					const savedTheme = localStorage.getItem('theme');
+					const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+					const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+					document.documentElement.classList.toggle('dark', isDark);
+					document
+						.querySelector('meta[name="theme-color"]')
+						?.setAttribute('content', isDark ? '#000000' : '#ffffff');
+				} catch {
+					// Use the light theme if browser storage or media queries are unavailable.
+				}
+			})();
+		</script>
 		<link rel="icon" type="image/jpeg" href="/profile.jpg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
