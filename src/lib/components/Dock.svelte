@@ -96,7 +96,7 @@
 		height: var(--dock-size);
 	}
 
-	/* Fit all five icons on narrow screens by reducing their size slightly. */
+	/* Keep the dock compact on narrow screens. */
 	@media (max-width: 420px) {
 		.dock {
 			--dock-size: 38px;
