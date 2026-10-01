@@ -1,6 +1,7 @@
 ---
 title: 'Moving to an AI enablement team'
 date: '2026-06-16'
+author: 'natori'
 description: 'I moved to an internal AI enablement team: what changed, what comes next, and how I want to work.'
 tags: ['Team', 'Career', 'AI']
 published: true
