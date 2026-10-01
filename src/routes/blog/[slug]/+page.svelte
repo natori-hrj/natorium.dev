@@ -1,10 +1,20 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { Share2 } from 'lucide-svelte';
+	import { Copy, Share2 } from 'lucide-svelte';
 	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
+	let shareMenuOpen = $state(false);
 	let shareStatus = $state<'idle' | 'copied' | 'error'>('idle');
+
+	function getPostUrl() {
+		return `https://natorium.dev/blog/${data.slug}`;
+	}
+
+	function getXShareUrl() {
+		const postUrl = getPostUrl();
+		return `https://x.com/intent/post?text=${encodeURIComponent(data.metadata.title)}&url=${encodeURIComponent(postUrl)}`;
+	}
 
 	function formatDate(date: string) {
 		return new Intl.DateTimeFormat('en-US', {
@@ -14,32 +24,41 @@
 		}).format(new Date(`${date}T00:00:00`));
 	}
 
-	async function sharePost() {
-		const shareData = {
-			title: data.metadata.title,
-			text: data.metadata.description ?? data.metadata.title,
-			url: window.location.href
-		};
+	async function copyLink() {
+		const postUrl = getPostUrl();
 
 		try {
-			if (navigator.share) {
-				await navigator.share(shareData);
-			} else if (navigator.clipboard) {
-				await navigator.clipboard.writeText(shareData.url);
-				shareStatus = 'copied';
+			if (navigator.clipboard) {
+				await navigator.clipboard.writeText(postUrl);
 			} else {
-				shareStatus = 'error';
+				const textArea = document.createElement('textarea');
+				textArea.value = postUrl;
+				textArea.style.position = 'fixed';
+				textArea.style.opacity = '0';
+				document.body.appendChild(textArea);
+				textArea.select();
+				const copied = document.execCommand('copy');
+				textArea.remove();
+
+				if (!copied) throw new Error('Copy failed');
 			}
+
+			shareStatus = 'copied';
+			shareMenuOpen = false;
 		} catch (error) {
-			if (error instanceof DOMException && error.name === 'AbortError') return;
+			console.error('Could not copy article URL.', error);
 			shareStatus = 'error';
 		}
 
-		if (shareStatus !== 'idle') {
-			window.setTimeout(() => (shareStatus = 'idle'), 1800);
-		}
+		window.setTimeout(() => (shareStatus = 'idle'), 1800);
+	}
+
+	function closeShareMenuOnEscape(event: KeyboardEvent) {
+		if (event.key === 'Escape') shareMenuOpen = false;
 	}
 </script>
+
+<svelte:window onkeydown={closeShareMenuOnEscape} />
 
 <Seo
 	title={`${data.metadata.title} - natori's Site`}
@@ -66,15 +85,49 @@
 				<time datetime={data.metadata.date}>{formatDate(data.metadata.date)}</time>
 			</div>
 
-			<button
-				type="button"
-				class="press inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-black/45 transition-colors hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:text-white/45 dark:hover:text-white dark:focus-visible:outline-white"
-				aria-label="Share this article"
-				title="Share this article"
-				onclick={sharePost}
-			>
-				<Share2 size={20} strokeWidth={1.6} aria-hidden="true" />
-			</button>
+			<div class="relative">
+				<button
+					type="button"
+					class="press inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-black/45 transition-colors hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:text-white/45 dark:hover:text-white dark:focus-visible:outline-white"
+					aria-label="Share this article"
+					aria-controls="share-menu"
+					aria-expanded={shareMenuOpen}
+					aria-haspopup="menu"
+					title="Share this article"
+					onclick={() => (shareMenuOpen = !shareMenuOpen)}
+				>
+					<Share2 size={20} strokeWidth={1.6} aria-hidden="true" />
+				</button>
+
+				{#if shareMenuOpen}
+					<div
+						id="share-menu"
+						role="menu"
+						class="absolute top-full right-0 z-20 mt-2 min-w-44 rounded-lg border border-black/15 bg-white p-1 text-left text-sm shadow-lg dark:border-white/20 dark:bg-black"
+					>
+						<button
+							type="button"
+							role="menuitem"
+							class="flex min-h-10 w-full items-center gap-2 rounded-md px-3 text-black/75 transition-colors hover:bg-black/5 hover:text-black dark:text-white/75 dark:hover:bg-white/10 dark:hover:text-white"
+							onclick={copyLink}
+						>
+							<Copy size={16} strokeWidth={1.7} aria-hidden="true" />
+							Copy link
+						</button>
+						<a
+							href={getXShareUrl()}
+							target="_blank"
+							rel="external noopener noreferrer"
+							role="menuitem"
+							class="flex min-h-10 items-center gap-2 rounded-md px-3 text-black/75 transition-colors hover:bg-black/5 hover:text-black dark:text-white/75 dark:hover:bg-white/10 dark:hover:text-white"
+							onclick={() => (shareMenuOpen = false)}
+						>
+							<span class="text-base leading-none" aria-hidden="true">𝕏</span>
+							Post on X
+						</a>
+					</div>
+				{/if}
+			</div>
 		</div>
 		{#if shareStatus !== 'idle'}
 			<p class="mt-3 text-right text-xs text-black/55 dark:text-white/55" aria-live="polite">
