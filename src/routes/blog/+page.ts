@@ -1,10 +1,4 @@
-type BlogPostMetadata = {
-	title: string;
-	date: string;
-	description?: string;
-	tags?: string[];
-	published?: boolean;
-};
+import type { BlogPostMetadata } from '$lib/blog';
 
 type BlogPostModule = {
 	metadata: BlogPostMetadata;

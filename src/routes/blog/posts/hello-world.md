@@ -1,6 +1,7 @@
 ---
 title: 'My first post'
 date: '2026-01-10'
+author: 'natori'
 description: 'I started this blog. Posts are written and managed in Markdown.'
 tags: ['Notes', 'Intro']
 published: true

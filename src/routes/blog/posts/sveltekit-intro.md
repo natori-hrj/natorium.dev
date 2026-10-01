@@ -1,6 +1,7 @@
 ---
 title: 'Building a personal site with SvelteKit'
 date: '2026-01-10'
+author: 'natori'
 description: 'What I learned while building a personal site with SvelteKit.'
 tags: ['SvelteKit', 'Web development', 'Frontend']
 published: true
