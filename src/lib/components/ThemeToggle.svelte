@@ -3,18 +3,26 @@
 	import { fade } from 'svelte/transition';
 	import { Moon, Sun } from 'lucide-svelte';
 
-	let isDark = $state(false);
+	let isDark = $state(
+		typeof document !== 'undefined' && document.documentElement.classList.contains('dark')
+	);
 
-	onMount(() => {
+	const getPreferredTheme = () => {
 		const savedTheme = localStorage.getItem('theme');
 		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-		isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+		return savedTheme === 'dark' || (!savedTheme && prefersDark);
+	};
+
+	onMount(() => {
+		isDark = getPreferredTheme();
 
 		if (isDark) {
 			document.documentElement.classList.add('dark');
+			document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#000000');
 		} else {
 			document.documentElement.classList.remove('dark');
+			document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#ffffff');
 		}
 	});
 
@@ -23,9 +31,11 @@
 
 		if (isDark) {
 			document.documentElement.classList.add('dark');
+			document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#000000');
 			localStorage.setItem('theme', 'dark');
 		} else {
 			document.documentElement.classList.remove('dark');
+			document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#ffffff');
 			localStorage.setItem('theme', 'light');
 		}
 	};
