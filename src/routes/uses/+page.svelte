@@ -3,6 +3,19 @@
 
 	const uses = [
 		{
+			category: 'Hardware & OS',
+			items: [
+				{
+					name: 'ThinkPad',
+					description: 'My main computer.'
+				},
+				{
+					name: 'Omarchy',
+					description: 'The operating system on my ThinkPad.'
+				}
+			]
+		},
+		{
 			category: 'Editor',
 			items: [
 				{
