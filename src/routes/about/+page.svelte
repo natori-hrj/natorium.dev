@@ -82,11 +82,30 @@
 		<div class="section-heading">
 			<div>
 				<p class="section-kicker">03 / Open source</p>
-				<h2 id="open-source-heading">A couple of public traces.</h2>
+				<h2 id="open-source-heading">A few public traces.</h2>
 			</div>
 		</div>
 
 		<div class="public-list">
+			<article class="public-row">
+				<div class="public-icon" aria-hidden="true">
+					<GitPullRequest size={19} strokeWidth={1.8} />
+				</div>
+				<div class="public-content">
+					<div class="public-heading">
+						<h3>Headroom #2436</h3>
+						<a
+							href="https://github.com/headroomlabs-ai/headroom/pull/2436"
+							target="_blank"
+							rel="external noopener noreferrer"
+						>
+							View PR
+							<ArrowUpRight size={16} strokeWidth={1.8} />
+						</a>
+					</div>
+					<p>Merged fix for Docker port configuration, health checks, and doctor diagnostics.</p>
+				</div>
+			</article>
 			<article class="public-row">
 				<div class="public-icon" aria-hidden="true">
 					<Github size={19} strokeWidth={1.8} />

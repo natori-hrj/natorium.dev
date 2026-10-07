@@ -40,6 +40,21 @@
 		},
 		{
 			category: 'Open source',
+			title: 'Headroom Docker port configuration',
+			intro:
+				'A bug-fix contribution to Headroom, an open-source context compression layer for LLM applications.',
+			challenge:
+				'Docker deployments could ignore the configured port, leaving health checks and diagnostics probing the wrong port.',
+			approach:
+				'Updated container startup and health checks to honor HEADROOM_PORT, and taught headroom doctor to resolve the configured deployment port.',
+			stack: ['Python', 'Docker', 'pytest'],
+			status: 'Merged · open-source contribution',
+			href: 'https://github.com/headroomlabs-ai/headroom/pull/2436',
+			linkLabel: 'View PR',
+			linkIcon: 'github'
+		},
+		{
+			category: 'Open source',
 			title: 'TiDB optimizer hint warning fix',
 			intro:
 				'A focused bug-fix contribution to TiDB, a Go-based distributed SQL database by PingCAP.',
