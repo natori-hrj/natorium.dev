@@ -378,8 +378,8 @@
 	}
 
 	.hero-avatar {
-		width: 3.5rem;
-		height: 3.5rem;
+		width: 5rem;
+		height: 5rem;
 		margin-bottom: 1.5rem;
 		overflow: hidden;
 		border: 1px solid var(--text-color);
