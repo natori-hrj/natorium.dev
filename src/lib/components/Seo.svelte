@@ -11,7 +11,7 @@
 	};
 
 	const siteUrl = 'https://natorium.dev';
-	const defaultImage = '/profile.jpg';
+	const defaultImage = '/profile.png';
 	const defaultImageAlt = "natori's black-and-white profile illustration";
 
 	let {
