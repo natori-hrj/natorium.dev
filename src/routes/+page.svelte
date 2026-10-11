@@ -378,8 +378,8 @@
 	}
 
 	.hero-avatar {
-		width: 5rem;
-		height: 5rem;
+		width: 7.5rem;
+		height: 10rem;
 		margin-bottom: 1.5rem;
 		overflow: hidden;
 		border: 1px solid var(--text-color);
@@ -395,6 +395,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		object-position: center 30%;
 	}
 
 	.hero-aside p,
