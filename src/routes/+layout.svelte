@@ -50,7 +50,12 @@
 			href={resolve('/')}
 			class="press inline-flex items-center gap-2 text-sm font-bold tracking-[0.18em] uppercase transition-opacity hover:opacity-60 sm:text-base"
 		>
-			<img src="/profile.png" alt="" aria-hidden="true" class="h-6 w-6" />
+			<img
+				src="/profile.png"
+				alt=""
+				aria-hidden="true"
+				class="h-9 w-9 rounded-full object-cover object-[center_30%]"
+			/>
 			<span>natori</span>
 		</a>
 		<nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm sm:text-base">
