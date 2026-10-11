@@ -104,7 +104,7 @@
 
 			<div class="hero-aside">
 				<div class="hero-avatar">
-					<img src="/profile.jpg" alt="natori" />
+					<img src="/profile.png" alt="natori" />
 				</div>
 				<p>
 					I build data platforms and backend systems, then stay curious about the problems
