@@ -54,7 +54,7 @@
 				src="/profile.png"
 				alt=""
 				aria-hidden="true"
-				class="h-9 w-9 rounded-full object-cover object-[center_30%]"
+				class="h-10 w-8 rounded-lg object-cover object-[center_30%]"
 			/>
 			<span>natori</span>
 		</a>
