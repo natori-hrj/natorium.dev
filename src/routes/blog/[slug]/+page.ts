@@ -18,7 +18,7 @@ export async function load({ params }) {
 	const path = `../posts/${params.slug}.md`;
 	const post = posts[path];
 
-	if (!post) {
+	if (!post || post.metadata.published === false) {
 		throw error(404, `Post not found: ${params.slug}`);
 	}
 

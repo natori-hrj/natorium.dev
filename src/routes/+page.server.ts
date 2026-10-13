@@ -13,16 +13,60 @@ type ContributionDay = {
 	level: number;
 };
 
+type Contributions = {
+	total: number;
+	days: ContributionDay[];
+};
+
+const MAX_CONTRIBUTION_DAYS = 371;
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+const isContributionDay = (value: unknown): value is ContributionDay => {
+	if (!value || typeof value !== 'object') return false;
+
+	const day = value as Record<string, unknown>;
+	return (
+		typeof day.date === 'string' &&
+		ISO_DATE.test(day.date) &&
+		Number.isSafeInteger(day.count) &&
+		(day.count as number) >= 0 &&
+		Number.isInteger(day.level) &&
+		(day.level as number) >= 0 &&
+		(day.level as number) <= 4
+	);
+};
+
+const parseContributions = (value: unknown): Contributions | null => {
+	if (!value || typeof value !== 'object') return null;
+
+	const data = value as Record<string, unknown>;
+	const total =
+		data.total && typeof data.total === 'object'
+			? (data.total as Record<string, unknown>).lastYear
+			: undefined;
+
+	if (
+		!Number.isSafeInteger(total) ||
+		(total as number) < 0 ||
+		!Array.isArray(data.contributions) ||
+		data.contributions.length > MAX_CONTRIBUTION_DAYS ||
+		!data.contributions.every(isContributionDay)
+	) {
+		return null;
+	}
+
+	return { total: total as number, days: data.contributions };
+};
+
 const fetchContributions = async (fetchFn: typeof fetch) => {
 	try {
 		const res = await fetchFn(CONTRIBUTIONS_API, { signal: AbortSignal.timeout(6000) });
 		if (!res.ok) throw new Error(`contributions API returned ${res.status} ${res.statusText}`);
 
-		const data = (await res.json()) as {
-			total: { lastYear: number };
-			contributions: ContributionDay[];
-		};
-		return { total: data.total.lastYear, days: data.contributions };
+		const contributions = parseContributions(await res.json());
+		if (!contributions) throw new Error('contributions API returned an invalid response');
+
+		return contributions;
 	} catch (error) {
 		// Keep the home page available even if the request fails; the UI hides the graph when null.
 		console.error('[contributions] Failed to fetch GitHub contributions:', error);
