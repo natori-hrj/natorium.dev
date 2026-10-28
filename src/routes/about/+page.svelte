@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ArrowUpRight, Github, GitPullRequest, Shield } from 'lucide-svelte';
-	import Seo from '$lib/components/Seo.svelte';
+	import Seo from '#lib/components/Seo.svelte';
 
 	const experience = [
 		{

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ArrowUpRight } from 'lucide-svelte';
 	import { resolve } from '$app/paths';
-	import Seo from '$lib/components/Seo.svelte';
+	import Seo from '#lib/components/Seo.svelte';
 
 	let { data } = $props();
 </script>

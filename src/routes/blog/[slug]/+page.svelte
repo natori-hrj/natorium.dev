@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { Copy, MessageCircle, Share2, X } from 'lucide-svelte';
-	import Seo from '$lib/components/Seo.svelte';
+	import Seo from '#lib/components/Seo.svelte';
 
 	let { data } = $props();
 	let shareDialogOpen = $state(false);

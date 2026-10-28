@@ -1,4 +1,4 @@
-import { calculateReadingTime, type BlogPostMetadata } from '$lib/blog';
+import { calculateReadingTime, type BlogPostMetadata } from '#lib/blog';
 import { error } from '@sveltejs/kit';
 import type { Component } from 'svelte';
 

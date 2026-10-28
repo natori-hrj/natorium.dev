@@ -1,1 +1,1 @@
-// place files you want to import through the `$lib` alias in this folder.
+// Shared application modules live in this directory and are imported through the `#lib/*` subpath.

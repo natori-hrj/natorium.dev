@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Bot, Cloud, Code2, Database, Server, Wrench } from 'lucide-svelte';
-	import Seo from '$lib/components/Seo.svelte';
+	import Seo from '#lib/components/Seo.svelte';
 
 	const techStack = [
 		{
