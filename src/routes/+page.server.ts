@@ -19,7 +19,44 @@ type Contributions = {
 };
 
 const MAX_CONTRIBUTION_DAYS = 371;
+const MAX_CONTRIBUTIONS_RESPONSE_BYTES = 128 * 1024;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+const readLimitedJson = async (response: Response): Promise<unknown> => {
+	const contentLength = Number(response.headers.get('content-length'));
+	if (Number.isFinite(contentLength) && contentLength > MAX_CONTRIBUTIONS_RESPONSE_BYTES) {
+		await response.body?.cancel();
+		throw new Error('contributions API response exceeded the size limit');
+	}
+
+	if (!response.body) throw new Error('contributions API returned an empty response');
+
+	const reader = response.body.getReader();
+	const decoder = new TextDecoder();
+	let receivedBytes = 0;
+	let json = '';
+
+	try {
+		while (true) {
+			const { done, value } = await reader.read();
+			if (done) break;
+
+			receivedBytes += value.byteLength;
+			if (receivedBytes > MAX_CONTRIBUTIONS_RESPONSE_BYTES) {
+				await reader.cancel();
+				throw new Error('contributions API response exceeded the size limit');
+			}
+
+			json += decoder.decode(value, { stream: true });
+		}
+
+		json += decoder.decode();
+	} finally {
+		reader.releaseLock();
+	}
+
+	return JSON.parse(json);
+};
 
 const isContributionDay = (value: unknown): value is ContributionDay => {
 	if (!value || typeof value !== 'object') return false;
@@ -63,7 +100,7 @@ const fetchContributions = async (fetchFn: typeof fetch) => {
 		const res = await fetchFn(CONTRIBUTIONS_API, { signal: AbortSignal.timeout(6000) });
 		if (!res.ok) throw new Error(`contributions API returned ${res.status} ${res.statusText}`);
 
-		const contributions = parseContributions(await res.json());
+		const contributions = parseContributions(await readLimitedJson(res));
 		if (!contributions) throw new Error('contributions API returned an invalid response');
 
 		return contributions;

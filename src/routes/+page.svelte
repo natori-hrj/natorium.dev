@@ -2,8 +2,8 @@
 	import { resolve } from '$app/paths';
 	import { fade, slide } from 'svelte/transition';
 	import { ArrowDown, ArrowUpRight, ChevronDown, Github, Shield } from 'lucide-svelte';
-	import ContributionGraph from '$lib/components/ContributionGraph.svelte';
-	import Seo from '$lib/components/Seo.svelte';
+	import ContributionGraph from '#lib/components/ContributionGraph.svelte';
+	import Seo from '#lib/components/Seo.svelte';
 
 	let { data } = $props();
 

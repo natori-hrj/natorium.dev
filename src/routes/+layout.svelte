@@ -1,6 +1,6 @@
 <script lang="ts">
 	import './layout.css';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 	import { onNavigate } from '$app/navigation';
@@ -16,7 +16,7 @@
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
 
-		const isBack = navigation.delta !== undefined && navigation.delta < 0;
+		const isBack = navigation.type === 'popstate' && navigation.delta < 0;
 		document.documentElement.dataset.nav = isBack ? 'back' : 'forward';
 
 		return new Promise((resolve) => {

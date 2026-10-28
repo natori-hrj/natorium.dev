@@ -1,4 +1,4 @@
-import type { BlogPostMetadata } from '$lib/blog';
+import type { BlogPostMetadata } from '#lib/blog';
 
 type BlogPostModule = {
 	metadata: BlogPostMetadata;

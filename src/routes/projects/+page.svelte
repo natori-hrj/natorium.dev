@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { ArrowUpRight, Github } from 'lucide-svelte';
 	import { resolve } from '$app/paths';
-	import Seo from '$lib/components/Seo.svelte';
+	import Seo from '#lib/components/Seo.svelte';
 
 	type Category = 'Personal' | 'Open source' | 'Professional';
 	type LinkIcon = 'github' | 'external';
